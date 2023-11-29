@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.h                                         :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 14:42:33 by jkauker           #+#    #+#             */
-/*   Updated: 2023/11/29 15:15:41 by jkauker          ###   ########.fr       */
+/*   Created: 2023/10/05 00:43:43 by jonask            #+#    #+#             */
+/*   Updated: 2023/10/11 12:54:53 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-
-# define ERROR "Error\n"
-
-typedef struct s_stack
+char	*ft_strrchr(const char *s, int c)
 {
-	int			*stack;
-	int			size;
-}				t_stack;
+	char	*last_occ;
 
-void	log_error(void);
-
-#endif
+	last_occ = 0;
+	while (*s != 0)
+	{
+		if (*s == (char)c)
+			last_occ = (char *)s;
+		s++;
+	}
+	if ((char)c == '\0')
+		return ((char *)s);
+	return (last_occ);
+}

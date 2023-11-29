@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.h                                         :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
+/*   By: jonask <jonask@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 14:42:33 by jkauker           #+#    #+#             */
-/*   Updated: 2023/11/29 15:15:41 by jkauker          ###   ########.fr       */
+/*   Created: 2023/10/05 10:14:47 by jonask            #+#    #+#             */
+/*   Updated: 2023/10/08 21:35:20 by jonask           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-
-# define ERROR "Error\n"
-
-typedef struct s_stack
+void	ft_putchar_fd(char c, int fd)
 {
-	int			*stack;
-	int			size;
-}				t_stack;
-
-void	log_error(void);
-
-#endif
+	write(fd, &c, 1);
+}

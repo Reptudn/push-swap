@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.h                                         :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 14:42:33 by jkauker           #+#    #+#             */
-/*   Updated: 2023/11/29 15:15:41 by jkauker          ###   ########.fr       */
+/*   Created: 2023/10/05 01:07:50 by jonask            #+#    #+#             */
+/*   Updated: 2023/10/11 10:22:38 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-
-# define ERROR "Error\n"
-
-typedef struct s_stack
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int			*stack;
-	int			size;
-}				t_stack;
+	size_t	i;
 
-void	log_error(void);
-
-#endif
+	i = 0;
+	while (i < n)
+	{
+		if (*(unsigned char *)s == (unsigned char)c)
+			return ((void *)s);
+		i++;
+		s++;
+	}
+	return (0);
+}

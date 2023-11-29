@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.h                                         :+:      :+:    :+:   */
+/*   put_hex.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 14:42:33 by jkauker           #+#    #+#             */
-/*   Updated: 2023/11/29 15:15:41 by jkauker          ###   ########.fr       */
+/*   Created: 2023/10/23 15:12:41 by jkauker           #+#    #+#             */
+/*   Updated: 2023/11/10 14:10:59 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#include "../ft_printf.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-
-# define ERROR "Error\n"
-
-typedef struct s_stack
+void	put_hex(long long num, int capital, int prefix, int *writecount)
 {
-	int			*stack;
-	int			size;
-}				t_stack;
-
-void	log_error(void);
-
-#endif
+	if (prefix == 1)
+	{
+		if (num == 0)
+			put_string("0x0", writecount);
+		else
+			put_base(num, 16, capital, writecount);
+	}
+	else
+	{
+		if (num == 0)
+			put_string("0", writecount);
+		else
+			put_base_hex(num, 16, capital, writecount);
+	}
+}

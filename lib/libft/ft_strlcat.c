@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.h                                         :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 14:42:33 by jkauker           #+#    #+#             */
-/*   Updated: 2023/11/29 15:15:41 by jkauker          ###   ########.fr       */
+/*   Created: 2023/10/05 01:44:44 by jonask            #+#    #+#             */
+/*   Updated: 2023/10/11 10:48:42 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-
-# define ERROR "Error\n"
-
-typedef struct s_stack
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int			*stack;
-	int			size;
-}				t_stack;
+	size_t	i;
 
-void	log_error(void);
-
-#endif
+	i = 0;
+	while (*dst != 0 && i < size)
+	{
+		i++;
+		dst++;
+	}
+	return (ft_strlcpy(dst, src, size - i) + i);
+}

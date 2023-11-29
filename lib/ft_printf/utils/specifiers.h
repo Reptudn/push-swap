@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.h                                         :+:      :+:    :+:   */
+/*   specifiers.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 14:42:33 by jkauker           #+#    #+#             */
-/*   Updated: 2023/11/29 15:15:41 by jkauker          ###   ########.fr       */
+/*   Created: 2023/10/08 21:27:41 by jonask            #+#    #+#             */
+/*   Updated: 2023/10/18 08:53:46 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#ifndef SPECIFIERS_H
+# define SPECIFIERS_H
 
-# include <unistd.h>
-# include <stdlib.h>
+# define PREFIX			'%'
 
-# define ERROR "Error\n"
+# define CHAR			'c'
+# define STRING			's'
+# define POINTER		'p'
+# define DECIMAL		'd'
+# define INTEGER		'i'
+# define UINTEGER		'u'
+# define HEXSMALL		'x'
+# define HEXBIG			'X'
+# define PERCENT		'%'
 
-typedef struct s_stack
-{
-	int			*stack;
-	int			size;
-}				t_stack;
-
-void	log_error(void);
+# define SPACE			' '
+# define HASHTAG		'#'
+# define PLUS			'+'
 
 #endif

@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.h                                         :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 14:42:33 by jkauker           #+#    #+#             */
-/*   Updated: 2023/11/29 15:15:41 by jkauker          ###   ########.fr       */
+/*   Created: 2023/10/09 07:16:51 by jonask            #+#    #+#             */
+/*   Updated: 2023/10/13 12:12:06 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-
-# define ERROR "Error\n"
-
-typedef struct s_stack
+int	ft_lstsize(t_list *lst)
 {
-	int			*stack;
-	int			size;
-}				t_stack;
+	int		i;
+	t_list	*curr;
 
-void	log_error(void);
-
-#endif
+	i = 0;
+	curr = lst;
+	while (curr != 0)
+	{
+		curr = curr->next;
+		i++;
+	}
+	return (i);
+}
