@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   log.c                                              :+:      :+:    :+:   */
+/*   pa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 14:42:02 by jkauker           #+#    #+#             */
-/*   Updated: 2023/11/29 16:10:30 by jkauker          ###   ########.fr       */
+/*   Created: 2023/11/29 16:07:41 by jkauker           #+#    #+#             */
+/*   Updated: 2023/11/29 16:16:17 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+// pa : push a - take the first element at the top of b and
+// put it at the top of a. Do nothing if b is empty.
 
-void	log_error(void)
+#include "../push_swap.h"
+
+void	pa(t_stack *a, t_stack *b)
 {
-	write(2, "Error\n", 7);
+	a->stack[0] = b->stack[0];
 }

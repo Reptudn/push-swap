@@ -6,11 +6,11 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:40:08 by jkauker           #+#    #+#             */
-/*   Updated: 2023/11/29 16:00:58 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/11/29 16:10:37 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "push_swap.h"
 
 int	string_to_stack(char *str, t_stack *stack)
 {
@@ -27,7 +27,7 @@ int	args_to_stack(char **argv, t_stack *stack, int argc)
 
 	i = 1;
 	j = 0;
-	
+
 	return (0);
 }
 

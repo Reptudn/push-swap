@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   log.c                                              :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 14:42:02 by jkauker           #+#    #+#             */
-/*   Updated: 2023/11/29 16:10:30 by jkauker          ###   ########.fr       */
+/*   Created: 2023/11/29 14:42:33 by jkauker           #+#    #+#             */
+/*   Updated: 2023/11/29 16:16:12 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-void	log_error(void)
+# include <unistd.h>
+# include <stdlib.h>
+
+# define ERROR "Error\n"
+
+typedef struct s_stack
 {
-	write(2, "Error\n", 7);
-}
+	int			*stack;
+	int			size;
+}				t_stack;
+
+void	log_error(void);
+void	pa(t_stack *a, t_stack *b);
+void	pb(t_stack *b, t_stack *a);
+
+#endif

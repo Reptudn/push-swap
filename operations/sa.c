@@ -1,18 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   log.c                                              :+:      :+:    :+:   */
+/*   sa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 14:42:02 by jkauker           #+#    #+#             */
-/*   Updated: 2023/11/29 16:10:30 by jkauker          ###   ########.fr       */
+/*   Created: 2023/11/29 16:06:50 by jkauker           #+#    #+#             */
+/*   Updated: 2023/11/29 16:07:01 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	log_error(void)
-{
-	write(2, "Error\n", 7);
-}
+// sawp a - swap the first 2 elements at the top of stack a. Do nothing if there
