@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:07:41 by jkauker           #+#    #+#             */
-/*   Updated: 2023/11/29 16:16:17 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/13 11:12:03 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 #include "../push_swap.h"
 
-void	pa(t_stack *a, t_stack *b)
+void	pa(t_stack *a, t_stack *b, int print)
 {
 	a->stack[0] = b->stack[0];
+	if (print)
+		write(1, "pa\n", 3);
 }
