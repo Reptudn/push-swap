@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:54:59 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/13 11:14:06 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/13 13:29:24 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	sort_stack(t_stack *a, t_stack *b)
 	{
 		write(1, "sa\n", 3);
 		operations++;
+		break;
 	}
 	printf("Operations: %d\n", operations);
 	print_stacks(a, b);

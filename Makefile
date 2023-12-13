@@ -1,8 +1,21 @@
 NAME	:= push_swap
-SRC		:= ./log.c \
-			main.c
+SRC		:= 	./log.c \
+			./main.c \
+			./check.c \
+			./algorithm.c \
+			./operations/pa.c \
+			./operations/pb.c \
+			./operations/ra.c \
+			./operations/rb.c \
+			./operations/rr.c \
+			./operations/rra.c \
+			./operations/rrb.c \
+			./operations/rrr.c \
+			./operations/sa.c \
+			./operations/sb.c \
+			./operations/ss.c
 CFLAGS	:= -Wall -Wextra -Werror
-CC		:= gcc
+CC		:= cc
 INCLUDE	:= -I./lib/libft/libft.a -I./lib/ft_printf/libftprintf.a 
 LIBS	:= -L./lib/libft -L./lib/ft_printf -lft -lftprintf
 
@@ -28,7 +41,7 @@ fclean: clean
 	@make -C ./lib/ft_printf fclean
 	rm -f $(SERVER) $(CLIENT) && printf "Cleaned everything\n"
 
-re: fclean all
+re: fclean all name
 
 # $@ - target (like $(SERVER) and $(CLIENT))
 # $^ - all dependencies (like server.o and client.o)

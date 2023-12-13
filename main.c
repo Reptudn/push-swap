@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:40:08 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/13 11:01:36 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/13 13:47:31 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ int	string_to_stack(char *str, t_stack *stack)
 int	args_to_stack(char **argv, t_stack *stack, int argc)
 {
 	int		i;
-	int		j;
-	int		k;
-	char	*str;
 
 	i = 0;
 	while (++i < argc)
@@ -49,8 +46,8 @@ int	args_to_stack(char **argv, t_stack *stack, int argc)
 
 int	main(int argc, char **argv)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	t_stack	*stack_a = NULL;
+	t_stack	*stack_b = NULL;
 
 	if (argc < 2)
 	{
@@ -87,6 +84,7 @@ int	main(int argc, char **argv)
 		log_error(stack_a, stack_b);
 		return (1);
 	}
+	stack_b->stack = malloc(sizeof(int) * stack_a->size);
 	sort_stack(stack_a, stack_b);
 	end_program(stack_a, stack_b);
 	return (0);
