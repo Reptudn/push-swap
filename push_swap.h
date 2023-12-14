@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:42:33 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 12:42:19 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/14 13:46:33 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,23 @@ typedef struct s_stack
 	int			size;
 }				t_stack;
 
-void	pa(t_stack *a, t_stack *b, int print);
-void	pb(t_stack *b, t_stack *a, int print);
-void	ra(t_stack *stack_a, int print);
-void	rb(t_stack *stack_b, int print);
-void	rr(t_stack *stack_a, t_stack *stack_b);
-void	rra(t_stack *stack_a, int print);
-void	rrb(t_stack *stack_b, int print);
-void	rrr(t_stack *stack_a, t_stack *stack_b);
-void	sa(t_stack *stack_a, int print);
-void	sb(t_stack *stack_b, int print);
-void	ss(t_stack *stack_a, t_stack *stack_b);
+void	pa(int *a, int *b, int *size, int print);
+void	pb(int *b, int *a, int *size, int print);
+void	ra(int *stack_a, int *size, int print);
+void	rb(int *stack_b, int *size, int print);
+void	rr(int *stack_a, int *stack_b, int *size);
+void	rra(int *stack_a, int *size, int print);
+void	rrb(int *stack_b, int *size, int print);
+void	rrr(int *stack_a, int *stack_b, int *size);
+void	sa(int *stack_a, int print);
+void	sb(int *stack_b, int print);
+void	ss(int *stack_a, int *stack_b);
 
-void	sort_stack(t_stack *a, t_stack *b);
+void	sort_stack(int *a, int *b, int *size);
 
-void	log_error(t_stack *stack_a, t_stack *stack_b);
+void	log_error(int *stack_a, int *stack_b);
 int		ft_isnumber(char *str);
-void	end_program(t_stack *stack_a, t_stack *stack_b);
+void	end_program(int *stack_a, int *stack_b);
 void	print_stacks(int *stack_a, int *stack_b, int *size);
 
 int		is_valid_input(char **argv, int argc);

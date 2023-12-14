@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:07:56 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/13 11:32:48 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/14 13:35:59 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 
 #include "../push_swap.h"
 
-void	pb(t_stack *b, t_stack *a, int print)
+void	pb(int *b, int *a, int *size, int print)
 {
-	if (a->stack[0] == 0)
+	if (a[0] == 0)
 		return ;
-	b->stack[0] = a->stack[0];
+	rb(b, size, 0);
+	b[0] = a[0];
+	a[0] = 0;
 	if (print)
 		write(1, "pb\n", 3);
 }

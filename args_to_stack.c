@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 08:52:08 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 12:43:40 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/14 13:05:13 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	args_to_stack(int argc, char **argv, int *stack, int *size)
 	char	**contents;
 
 	i = 0;
-	*size = 0;
 	while (++i < argc)
 	{
 		if (ft_strchr(argv[i], ' '))
@@ -54,13 +53,11 @@ int	args_to_stack(int argc, char **argv, int *stack, int *size)
 		else if (!string_to_stack(argv[i], stack, size))
 			return (free(stack), 0);
 	}
-	write(1, "done\n", 5);
 	return (1);
 }
 
 int	setup_second_stack(int *stack_b, int *stack_a, int *size)
 {
-	stack_b = malloc(*size * sizeof(int));
 	if (!stack_b)
 	{
 		free(stack_a);
