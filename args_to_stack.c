@@ -6,10 +6,11 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 08:52:08 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 09:32:22 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/14 09:55:01 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "lib/libft/libft.h"
 #include "push_swap.h"
 
 int	string_to_stack(char *arg, t_stack *stack)
@@ -26,20 +27,21 @@ int	args_to_stack(int argc, char **argv, t_stack *stack)
 	int		i;
 
 	i = 0;
-	stack->stack = malloc(argc * sizeof(int));
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
+		return (0);
+	stack->stack = malloc(sizeof(int));
 	if (!stack->stack)
 		return (0);
 	stack->size = 0;
-	write(1, "args_to_stack\n", 14);
 	while (++i < argc)
 	{
-		ft_printf("%d\n", i);
 		if (ft_strchr(argv[i], ' ') && !string_to_stack(argv[i], stack))
 			return (free(stack->stack), free(stack), 0);
 		else if (!string_to_stack(argv[i], stack))
 			return (free(stack->stack), free(stack), 0);
-		printf("Stack size: %d\n", stack->size);
 	}
+	printf("stack a size: %d\n", stack->size);
 	return (1);
 }
 
@@ -52,7 +54,9 @@ int	setup_second_stack(t_stack *stack_b, t_stack *stack_a)
 		free(stack_a);
 		return (0);
 	}
-	stack_b->stack = ft_calloc(stack_a->size, sizeof(int));
+	write(1, "a\n", 2);
+	stack_b->stack = malloc(stack_a->size * sizeof(int));
+	write(1, "b\n", 2);
 	if (!stack_b->stack)
 	{
 		free(stack_a->stack);
@@ -60,6 +64,7 @@ int	setup_second_stack(t_stack *stack_b, t_stack *stack_a)
 		free(stack_b);
 		return (0);
 	}
+	ft_bzero(stack_b->stack, stack_a->size);
 	stack_b->size = stack_a->size;
 	return (1);
 }
