@@ -3,6 +3,7 @@ SRC		:= 	./log.c \
 			./main.c \
 			./check.c \
 			./algorithm.c \
+			./args_to_stack.c \
 			./operations/pa.c \
 			./operations/pb.c \
 			./operations/ra.c \

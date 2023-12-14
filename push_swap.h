@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:42:33 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/13 11:12:18 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/14 09:24:59 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,9 @@ void	log_error(t_stack *stack_a, t_stack *stack_b);
 int		ft_isnumber(char *str);
 void	end_program(t_stack *stack_a, t_stack *stack_b);
 void	print_stacks(t_stack *stack_a, t_stack *stack_b);
+
+int		is_valid_input(char **argv, int argc);
+int		args_to_stack(int argc, char **argv, t_stack *stack);
+int		setup_second_stack(t_stack *stack_b, t_stack *stack_a);
 
 #endif
