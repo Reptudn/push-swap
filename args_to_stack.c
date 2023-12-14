@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 08:52:08 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 10:55:41 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/14 11:07:12 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	string_to_stack(char *arg, int *stack, int *size)
 	stack = realloc(stack, ((*size) + 1) * sizeof(int));
 	if (!stack)
 		return (0);
-	stack[++(*size)] = ft_atoi(arg);
+	stack[(*size)++] = ft_atoi(arg);
 	return (1);
 }
 
@@ -43,7 +43,7 @@ int	args_to_stack(int argc, char **argv, int *stack, int *size)
 			while (contents[++j])
 			{
 				if (!string_to_stack(contents[j], stack, size))
-					return (free(contents[j]), free(stack), 0);
+					return (free(contents[j]), free(contents), free(stack), 0);
 				free(contents[j]);
 			}
 			free(contents);
@@ -51,6 +51,7 @@ int	args_to_stack(int argc, char **argv, int *stack, int *size)
 		else if (!string_to_stack(argv[i], stack, size))
 			return (free(stack), 0);
 	}
+	write(1, "done\n", 5);
 	return (1);
 }
 
