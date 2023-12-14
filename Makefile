@@ -27,22 +27,22 @@ all: $(NAME)
 %.o: %.c
 	@make -C ./lib/libft
 	@make -C ./lib/ft_printf
-	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@ && printf "Compiled $<\n"
+	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@ && printf "Compiled $<\n"
 
 $(NAME): $(SRC:.c=.o)
-	$(CC) $(CFLAGS) $(INCLUDE) $^ $(LIBS) -o $@ && printf "Compiled $@\n"
+	@$(CC) $(CFLAGS) $(INCLUDE) $^ $(LIBS) -o $@ && printf "Compiled $@\n"
 
 clean:
 	@make -C ./lib/libft clean
 	@make -C ./lib/ft_printf clean
-	rm -f *.o && printf "Cleaned\n"
+	@rm -rf ./*.o ./operations/*.o
 
 fclean: clean
 	@make -C ./lib/libft fclean
 	@make -C ./lib/ft_printf fclean
-	rm -f $(SERVER) $(CLIENT) && printf "Cleaned everything\n"
+	@rm -rf $(NAME)
 
 re: fclean all name
 
-# $@ - target (like $(SERVER) and $(CLIENT))
-# $^ - all dependencies (like server.o and client.o)
+# $@ - target
+# $^ - all dependencies
