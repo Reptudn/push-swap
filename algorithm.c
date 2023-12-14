@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:54:59 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 08:48:14 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/14 11:12:13 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	sort_stack(t_stack *a, t_stack *b)
 	int		operations;
 
 	operations = 0;
-	print_stacks(a, b);
+	// print_stacks(a, b);
+	b->stack[0] = a->stack[0];
 	while (!is_sorted(a))
 	{
 		write(1, "sa\n", 3);
@@ -36,5 +37,5 @@ void	sort_stack(t_stack *a, t_stack *b)
 		break ;
 	}
 	printf("Operations: %d\n", operations);
-	print_stacks(a, b);
+	// print_stacks(a, b);
 }
