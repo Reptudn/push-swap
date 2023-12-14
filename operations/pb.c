@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:07:56 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 13:35:59 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/14 15:49:03 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	pb(int *b, int *a, int *size, int print)
 {
 	if (a[0] == 0)
 		return ;
-	rb(b, size, 0);
+	rrb(b, size, 0);
 	b[0] = a[0];
 	a[0] = 0;
 	if (print)

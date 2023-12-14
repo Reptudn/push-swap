@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:42:02 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 13:51:56 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/14 16:34:06 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ void	print_stacks(int *stack_a, int *stack_b, int *size)
 	ft_printf(" a\tb\n---(%d)---\n", *size);
 	while (++i < *size)
 		ft_printf(" %d\t%d\n", stack_a[i], stack_b[i]);
+	write(1, "---------\n", 11);
 }
 
 void	end_program(int *stack_a, int *stack_b)
 {
 	free(stack_a);
 	free(stack_b);
-	// system("leaks push_swap");
+	system("leaks push_swap");
 }

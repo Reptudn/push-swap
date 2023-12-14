@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 08:52:08 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 14:35:04 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/14 15:57:34 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,6 @@ int	setup_second_stack(int *stack_b, int *stack_a, int *size)
 		free(stack_a);
 		return (0);
 	}
-	ft_bzero(stack_b, *size);
+	ft_memset(stack_b, 0, *size);
 	return (1);
 }

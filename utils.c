@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 14:11:23 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 15:13:40 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/14 16:43:41 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	is_stack_empty(int *stack, int *size)
 	while (++i < *size)
 		if (stack[i] != 0)
 			return (0);
-	return (0);
+	return (1);
 }
 
 int	get_index_of_smallest_num(int *stack, int *size)
@@ -39,5 +39,7 @@ int	get_index_of_smallest_num(int *stack, int *size)
 			index = i;
 		}
 	}
+	if (index < 0)
+		return (0);
 	return (index);
 }

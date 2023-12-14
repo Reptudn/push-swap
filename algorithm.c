@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:54:59 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 15:15:00 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/14 16:46:55 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	sort_stack(int *a, int *b, int *size)
 
 	operations = 0;
 	printf("Sorting...\n");
-	while (!is_sorted(a, b, size) && operations < 100)
+	while (!is_sorted(a, b, size))
 	{
 		if (is_stack_empty(a, size))
 		{
@@ -60,13 +60,12 @@ void	sort_stack(int *a, int *b, int *size)
 		}
 		while (index--)
 		{
-			ra(a, size, 1);
+			ra(a, size, 0);
 			operations++;
 		}
 		pb(b, a, size, 1);
-		ra(a, size, 1);
-		operations += 3;
+		ra(a, size, 0);
+		operations += 2;
 	}
 	printf("Sorted with %d operations\n", operations);
-	print_stacks(a, b, size);
 }
