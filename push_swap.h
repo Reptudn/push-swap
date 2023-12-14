@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:42:33 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 10:45:23 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/14 12:42:19 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "./lib/ft_printf/ft_printf.h"
-# include "./lib/libft/libft.h" 
+# include "./lib/libft/libft.h"
 
 # define ERROR "Error\n"
+# define NORMAL_SIZE 500
 
 typedef struct s_stack
 {

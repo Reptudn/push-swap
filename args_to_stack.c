@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 08:52:08 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 11:30:05 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/14 12:43:40 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@
 int	string_to_stack(char *arg, int *stack, int *size)
 {
 	printf("arg: %s\tsize: %d\n", arg, *size);
-	stack = realloc(stack, ((*size) + 1) * sizeof(int));
-	if (!stack)
-		return (0);
-	stack[(*size)] = ft_atoi(arg);
-	(*size)++;
+	if (*size + 1 > NORMAL_SIZE)
+	{
+		stack = realloc(stack, ((*size) + 1) * sizeof(int));
+		if (!stack)
+			return (0);
+	}
+	stack[(*size)++] = ft_atoi(arg);
 	return (1);
 }
 
