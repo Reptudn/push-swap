@@ -3,6 +3,7 @@ SRC		:= 	./log.c \
 			./main.c \
 			./check.c \
 			./algorithm.c \
+			./utils.c \
 			./args_to_stack.c \
 			./operations/pa.c \
 			./operations/pb.c \
@@ -27,10 +28,10 @@ all: $(NAME)
 %.o: %.c
 	@make -C ./lib/libft
 	@make -C ./lib/ft_printf
-	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@ && printf "Compiled $<\n"
+	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 $(NAME): $(SRC:.c=.o)
-	@$(CC) $(CFLAGS) $(INCLUDE) $^ $(LIBS) -o $@ && printf "Compiled $@\n"
+	@$(CC) $(CFLAGS) $(INCLUDE) $^ $(LIBS) -o $@
 
 clean:
 	@make -C ./lib/libft clean

@@ -6,17 +6,14 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 08:52:08 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 13:05:13 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/14 14:35:04 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib/libft/libft.h"
 #include "push_swap.h"
-#include <stdlib.h>
 
 int	string_to_stack(char *arg, int *stack, int *size)
 {
-	printf("arg: %s\tsize: %d\n", arg, *size);
 	if (*size + 1 > NORMAL_SIZE)
 	{
 		stack = realloc(stack, ((*size) + 1) * sizeof(int));
