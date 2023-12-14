@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:40:08 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 13:06:43 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/14 13:50:36 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int argc, char **argv)
 	}
 	printf("stack b done\n");
 	print_stacks(stack_a, stack_b, &size);
-	// sort_stack(stack_a, stack_b);
+	sort_stack(stack_a, stack_b, &size);
 	end_program(stack_a, stack_b);
 	return (0);
 }
