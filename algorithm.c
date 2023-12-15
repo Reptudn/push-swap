@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:54:59 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/15 14:28:12 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/15 14:59:02 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	is_sorted(long *stack_a, long *stack_b, int *size)
 void	sort_stack(long *a, long *b, int *size)
 {
 	int		index;
-	int		i;
 
 	if (is_sorted(a, b, size))
 		return ;
@@ -55,8 +54,7 @@ void	sort_stack(long *a, long *b, int *size)
 		}
 		print_stacks(a, b, size);
 	}
-	i = *size;
-	while (i--)
+	while (!is_stack_empty(b, size))
 	{
 		print_stacks(a, b, size);
 		pa(a, b, size, 1);

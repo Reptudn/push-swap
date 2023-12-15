@@ -6,13 +6,23 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:15:41 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/15 12:14:49 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/15 15:02:56 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib/libft/libft.h"
 #include "push_swap.h"
 #include <stdlib.h>
+
+int	is_integer(char *str)
+{
+	if (ft_strlen(str) > 11)
+		return (0);
+	if (ft_strlen(str) == 11 && (str[0] != '-' || str[0] != '+'))
+		return (0);
+	// other checks if integer
+	return (1);
+}
 
 int	ft_isnumber(char *str)
 {
@@ -24,6 +34,8 @@ int	ft_isnumber(char *str)
 	while (str[++i])
 		if (!ft_isdigit(str[i]))
 			return (0);
+	if (!is_integer(str))
+		return (0);
 	return (1);
 }
 
