@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:54:59 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/15 12:28:49 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/15 12:37:25 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	sort_stack(long *a, long *b, int *size)
 			continue ;
 		}
 		while (index--)
-			ra(a, size, 0);
+			ra(a, size, 1);
 	}
 	i = *size;
 	while (i--)
