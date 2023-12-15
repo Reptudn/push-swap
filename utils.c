@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 14:11:23 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/15 09:46:38 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/15 10:13:27 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ int	is_stack_empty(long *stack, int *size)
 
 int	get_index_of_smallest_num(long *stack, int *size)
 {
-	int	i;
-	int	index;
-	int	smallest;
+	int		i;
+	int		index;
+	long	smallest;
 
-	smallest = __INT_MAX__;
+	smallest = 2147483648;
 	i = -1;
 	while (++i < *size)
 	{
