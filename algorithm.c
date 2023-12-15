@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:54:59 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 16:46:55 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/15 09:48:54 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 **	Checks if stack_a is sorted and stack_b is empty.
 */
-int	is_sorted(int *stack_a, int *stack_b, int *size)
+int	is_sorted(long *stack_a, long *stack_b, int *size)
 {
 	int		i;
 
@@ -23,14 +23,12 @@ int	is_sorted(int *stack_a, int *stack_b, int *size)
 	while (++i < *size - 1)
 		if (stack_a[i] > stack_a[i + 1])
 			return (0);
-	i = -1;
-	while (++i < *size)
-		if (stack_b[i] != 0)
-			return (0);
+	if (!is_stack_empty(stack_b, size))
+		return (0);
 	return (1);
 }
 
-void	sort_stack(int *a, int *b, int *size)
+void	sort_stack(long *a, long *b, int *size)
 {
 	int		operations;
 	int		index;

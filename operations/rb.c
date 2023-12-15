@@ -6,14 +6,14 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:08:23 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 13:34:14 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/15 09:37:55 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 // rb : rotate b - shift up all elements of stack b by 1. The first element
-void	rb(int *stack_b, int *size, int print)
+void	rb(long *stack_b, int *size, int print)
 {
 	int		tmp;
 	int		i;

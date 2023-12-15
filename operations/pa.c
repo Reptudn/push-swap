@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:07:41 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 15:49:12 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/15 09:39:50 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "../push_swap.h"
 
-void	pa(int *a, int *b, int *size, int print)
+void	pa(long *a, long *b, int *size, int print)
 {
 	if (b[0] == 0)
 		return ;

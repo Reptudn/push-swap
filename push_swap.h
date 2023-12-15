@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:42:33 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 14:26:43 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/15 09:42:54 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,39 +18,33 @@
 # include "./lib/ft_printf/ft_printf.h"
 # include "./lib/libft/libft.h"
 
-# define ERROR "Error\n"
+# define NOTHING 5000000000
 # define NORMAL_SIZE 500
 
-typedef struct s_stack
-{
-	int			*stack;
-	int			size;
-}				t_stack;
+void	pa(long *a, long *b, int *size, int print);
+void	pb(long *b, long *a, int *size, int print);
+void	ra(long *stack_a, int *size, int print);
+void	rb(long *stack_b, int *size, int print);
+void	rr(long *stack_a, long *stack_b, int *size);
+void	rra(long *stack_a, int *size, int print);
+void	rrb(long *stack_b, int *size, int print);
+void	rrr(long *stack_a, long *stack_b, int *size);
+void	sa(long *stack_a, int print);
+void	sb(long *stack_b, int print);
+void	ss(long *stack_a, long *stack_b);
 
-void	pa(int *a, int *b, int *size, int print);
-void	pb(int *b, int *a, int *size, int print);
-void	ra(int *stack_a, int *size, int print);
-void	rb(int *stack_b, int *size, int print);
-void	rr(int *stack_a, int *stack_b, int *size);
-void	rra(int *stack_a, int *size, int print);
-void	rrb(int *stack_b, int *size, int print);
-void	rrr(int *stack_a, int *stack_b, int *size);
-void	sa(int *stack_a, int print);
-void	sb(int *stack_b, int print);
-void	ss(int *stack_a, int *stack_b);
+void	sort_stack(long *a, long *b, int *size);
 
-void	sort_stack(int *a, int *b, int *size);
-
-void	log_error(int *stack_a, int *stack_b);
+void	log_error(long *stack_a, long *stack_b);
 int		ft_isnumber(char *str);
-void	end_program(int *stack_a, int *stack_b);
-void	print_stacks(int *stack_a, int *stack_b, int *size);
+void	end_program(long *stack_a, long *stack_b);
+void	print_stacks(long *stack_a, long *stack_b, int *size);
 
 int		is_valid_input(char **argv, int argc);
-int		args_to_stack(int argc, char **argv, int *stack, int *size);
-int		setup_second_stack(int *stack_b, int *stack_a, int *size);
+int		args_to_stack(int argc, char **argv, long *stack, int *size);
+int		setup_second_stack(long *stack_b, long *stack_a, int *size);
 
-int		get_index_of_smallest_num(int *stack, int *size);
-int		is_stack_empty(int *stack, int *size);
+int		get_index_of_smallest_num(long *stack, int *size);
+int		is_stack_empty(long *stack, int *size);
 
 #endif

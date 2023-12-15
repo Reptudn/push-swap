@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:07:56 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 15:49:03 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/15 09:39:53 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "../push_swap.h"
 
-void	pb(int *b, int *a, int *size, int print)
+void	pb(long *b, long *a, int *size, int print)
 {
 	if (a[0] == 0)
 		return ;

@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:08:06 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 13:33:36 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/15 09:40:03 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include <unistd.h>
 
 // ra : rotate a - shift up all elements of stack a by 1. The first element
-void	ra(int *stack_a, int *size, int print)
+void	ra(long *stack_a, int *size, int print)
 {
-	int		tmp;
+	long	tmp;
 	int		i;
 
 	tmp = stack_a[0];

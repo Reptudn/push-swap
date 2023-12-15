@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:40:08 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 16:45:46 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/15 09:48:59 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	main(int argc, char **argv)
 {
-	int		*stack_a;
-	int		*stack_b;
-	int		size;
+	long		*stack_a;
+	long		*stack_b;
+	int			size;
 
-	stack_a = malloc(NORMAL_SIZE * sizeof(int));
-	stack_b = malloc(NORMAL_SIZE * sizeof(int));
+	stack_a = malloc(NORMAL_SIZE * sizeof(long));
+	stack_b = malloc(NORMAL_SIZE * sizeof(long));
 	size = 0;
 	if (argc < 2 || !is_valid_input(argv, argc))
 	{
@@ -36,6 +36,7 @@ int	main(int argc, char **argv)
 		write(1, "Error\n", 6);
 		return (1);
 	}
+	print_stacks(stack_a, stack_b, &size);
 	sort_stack(stack_a, stack_b, &size);
 	print_stacks(stack_a, stack_b, &size);
 	end_program(stack_a, stack_b);

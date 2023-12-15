@@ -6,16 +6,16 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:09:05 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 13:46:14 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/15 09:38:50 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 // rrb : reverse rotate b - shift down all elements of stack b by 1. The last
-void	rrb(int *stack_b, int *size, int print)
+void	rrb(long *stack_b, int *size, int print)
 {
-	int		tmp;
+	long	tmp;
 	int		i;
 
 	tmp = stack_b[*size - 1];

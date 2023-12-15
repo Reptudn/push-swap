@@ -6,13 +6,13 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 08:52:08 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 15:57:34 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/15 09:44:30 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	string_to_stack(char *arg, int *stack, int *size)
+int	string_to_stack(char *arg, long *stack, int *size)
 {
 	if (*size + 1 > NORMAL_SIZE)
 	{
@@ -24,7 +24,7 @@ int	string_to_stack(char *arg, int *stack, int *size)
 	return (1);
 }
 
-int	args_to_stack(int argc, char **argv, int *stack, int *size)
+int	args_to_stack(int argc, char **argv, long *stack, int *size)
 {
 	int		i;
 	int		j;
@@ -53,13 +53,17 @@ int	args_to_stack(int argc, char **argv, int *stack, int *size)
 	return (1);
 }
 
-int	setup_second_stack(int *stack_b, int *stack_a, int *size)
+int	setup_second_stack(long *stack_b, long *stack_a, int *size)
 {
+	int		i;
+
+	i = 0;
 	if (!stack_b)
 	{
 		free(stack_a);
 		return (0);
 	}
-	ft_memset(stack_b, 0, *size);
+	while (i < *size)
+		stack_b[i++] = NOTHING;
 	return (1);
 }
