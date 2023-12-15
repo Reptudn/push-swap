@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:42:02 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/15 12:29:56 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/15 13:52:19 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ void	end_program(long *stack_a, long *stack_b)
 	free(stack_a);
 	free(stack_b);
 	// system("leaks push_swap");
-	printf("Sort Success\n");
+	// printf("Sort Success\n");
 }

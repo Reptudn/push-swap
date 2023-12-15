@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:07:56 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/15 10:12:52 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/15 13:54:54 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 void	pb(long *b, long *a, int *size, int print)
 {
-	if (a[0] == NOTHING)
-		return ;
+	// if (a[0] == NOTHING)
+	// 	return ;
 	rrb(b, size, 0);
 	b[0] = a[0];
 	a[0] = NOTHING;

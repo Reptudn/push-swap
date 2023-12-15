@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:42:33 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/15 09:42:54 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/15 14:25:28 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void	rr(long *stack_a, long *stack_b, int *size);
 void	rra(long *stack_a, int *size, int print);
 void	rrb(long *stack_b, int *size, int print);
 void	rrr(long *stack_a, long *stack_b, int *size);
-void	sa(long *stack_a, int print);
-void	sb(long *stack_b, int print);
-void	ss(long *stack_a, long *stack_b);
+void	sa(long *stack_a, int *size, int print);
+void	sb(long *stack_b, int *size, int print);
+void	ss(long *stack_a, int *size, long *stack_b);
 
 void	sort_stack(long *a, long *b, int *size);
 
