@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:15:41 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/14 09:25:08 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/15 12:14:49 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_isnumber(char *str)
 	int		i;
 
 	i = -1;
+	if (str[0] == '-' || str[0] == '+')
+		i++;
 	while (str[++i])
 		if (!ft_isdigit(str[i]))
 			return (0);
