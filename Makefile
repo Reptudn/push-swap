@@ -26,11 +26,11 @@ LIBS	:= -L./lib/libft -L./lib/ft_printf -lft -lftprintf
 all: $(NAME)
 
 %.o: %.c
-	@make -C ./lib/libft
-	@make -C ./lib/ft_printf
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 $(NAME): $(SRC:.c=.o)
+	@make -C ./lib/libft
+	@make -C ./lib/ft_printf
 	@$(CC) $(CFLAGS) $(INCLUDE) $^ $(LIBS) -o $@
 
 clean:

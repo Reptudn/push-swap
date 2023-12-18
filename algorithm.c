@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:54:59 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/18 15:18:27 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/18 15:30:14 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,6 @@ void	sort_stack(long *a, long *b, int *size)
 
 	if (is_sorted(a, b, size))
 		return ;
-
-	// print_stacks(a, b, size);
-	// pb(b, a, size, 1);
-	// ra(a, size, 1);
-	// ra(a, size, 1);
-	// print_stacks(a, b, size);
-	// return ;
 	while (!is_stack_empty(a, size))
 	{
 		index = get_index_of_smallest_num(a, size);
@@ -59,4 +52,77 @@ void	sort_stack(long *a, long *b, int *size)
 		rb(b, size, 1);
 	}
 	print_stacks(a, b, size);
+}
+
+void sort_chunk(long *stack_b, int chunk_size)
+{
+    int i, j;
+
+    for (i = 0; i < chunk_size - 1; i++) {
+        for (j = 0; j < chunk_size - i - 1; j++) {
+            // Rotate to the jth element
+            while (j-- > 0)
+                rb(stack_b, &chunk_size, 1);
+
+            // If the current element is greater than the next
+            if (stack_b[0] > stack_b[1]) {
+                // Swap them
+                sb(stack_b, &chunk_size, 1);
+            }
+
+            // Rotate back to the start
+            while (j++ < chunk_size - 1)
+                rrb(stack_b, &chunk_size, 1);
+        }
+    }
+}
+
+void merge_chunks(long *stack_a, int size)
+{
+	int i = 0;
+    int j = size / 2; // assuming two chunks to merge
+
+    while (i < size / 2 && j < size) {
+        // Rotate to the ith element
+        while (i-- > 0)
+            ra(stack_a, &size, 1);
+
+        // Rotate to the jth element
+        while (j-- > i)
+            ra(stack_a, &size, 1);
+
+        // If the current element is greater than the next
+        if (stack_a[0] > stack_a[1]) {
+            // Swap them
+            sa(stack_a, &size, 1);
+        }
+
+        // Rotate back to the start
+        while (j++ < size - 1)
+            rra(stack_a, &size, 1);
+
+        i++;
+        j++;
+    }
+}
+
+void k_sort(long *a, long *b, int size, int k)
+{
+    int chunk_size = size / k;
+
+    // Divide the array into k chunks and sort each chunk
+    for (int i = 0; i < k; i++) {
+        for (int j = 0; j < chunk_size; j++) {
+            pb(b, a, &size, 1);
+        }
+        sort_chunk(b, chunk_size);
+    }
+
+    // Merge the chunks
+    for (int i = 0; i < k; i++) {
+        for (int j = 0; j < chunk_size; j++) {
+            pa(a, b, &size, 1);
+        }
+        merge_chunks(a, size);
+    }
 }

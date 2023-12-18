@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:42:33 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/15 14:25:28 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/18 15:27:03 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	sb(long *stack_b, int *size, int print);
 void	ss(long *stack_a, int *size, long *stack_b);
 
 void	sort_stack(long *a, long *b, int *size);
+void	k_sort(long *a, long *b, int size, int k);
 
 void	log_error(long *stack_a, long *stack_b);
 int		ft_isnumber(char *str);
