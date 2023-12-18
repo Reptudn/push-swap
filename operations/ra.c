@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:08:06 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/15 14:12:27 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/18 15:18:16 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	ra(long *stack_a, int *size, int print)
 	tmp = stack_a[0];
 	i = 0;
 	j = 0;
-
 	while (i < *size - 1)
 	{
 		if (stack_a[i + 1] != NOTHING)
@@ -34,7 +33,6 @@ void	ra(long *stack_a, int *size, int print)
 		stack_a[j++] = tmp;
 	while (j < *size)
 		stack_a[j++] = NOTHING;
-
 	if (print)
 		write(1, "ra\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:54:59 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/15 14:59:02 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/18 15:18:27 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,31 +34,29 @@ void	sort_stack(long *a, long *b, int *size)
 
 	if (is_sorted(a, b, size))
 		return ;
+
+	// print_stacks(a, b, size);
+	// pb(b, a, size, 1);
+	// ra(a, size, 1);
+	// ra(a, size, 1);
+	// print_stacks(a, b, size);
+	// return ;
 	while (!is_stack_empty(a, size))
 	{
 		index = get_index_of_smallest_num(a, size);
 		if (index == 0)
 		{
-			print_stacks(a, b, size);
 			pb(b, a, size, 1);
-			print_stacks(a, b, size);
 			ra(a, size, 1);
-			print_stacks(a, b, size);
 			continue ;
 		}
 		while (index--)
-		{
-			print_stacks(a, b, size);
 			ra(a, size, 1);
-			print_stacks(a, b, size);
-		}
-		print_stacks(a, b, size);
 	}
 	while (!is_stack_empty(b, size))
 	{
-		print_stacks(a, b, size);
 		pa(a, b, size, 1);
-		print_stacks(a, b, size);
 		rb(b, size, 1);
 	}
+	print_stacks(a, b, size);
 }

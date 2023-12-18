@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:07:41 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/15 13:54:58 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/18 15:09:36 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,16 @@
 
 void	pa(long *a, long *b, int *size, int print)
 {
-	// if (b[0] == NOTHING)
-	// 	return ;
+	if (b[0] == NOTHING)
+	{
+		if (print)
+			write(1, "pa\n", 3);
+		return ;
+	}
 	rra(a, size, 0);
 	a[0] = b[0];
 	b[0] = NOTHING;
+	rb(b, size, 0);
 	if (print)
 		write(1, "pa\n", 3);
 }
