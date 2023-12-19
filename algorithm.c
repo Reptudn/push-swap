@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jonask <jonask@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:54:59 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/19 10:57:11 by jonask           ###   ########.fr       */
+/*   Updated: 2023/12/19 15:15:50 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int	is_sorted(long *stack_a, long *stack_b, int *size)
 		return (0);
 	return (1);
 }
-// rra and rrb are not working cuz they reverse rotate but then put all the numbers
+
+// rra and rrb are not working cuz they reverse rotate but then put all the nbrs
 // on the bottom of the stack and the nothings above instead of the nothings on
 // the bottom and the numbers on top
 void	sort_stack(long *a, long *b, int *size)
@@ -36,12 +37,11 @@ void	sort_stack(long *a, long *b, int *size)
 
 	if (is_sorted(a, b, size))
 		return ;
-    pb(b, a, size, 1);
-    pb(b, a, size, 1);
-    pb(b, a, size, 1);
-    sa(a, size, 1);
-    sb(b, size, 1);
-    return ;
+	pb(b, a, size, 1);
+	pb(b, a, size, 1);
+	pb(b, a, size, 1);
+	// rrb(b, size, 1);
+	return ;
 	while (!is_stack_empty(a, size))
 	{
 		index = get_index_of_smallest_num(a, size);
@@ -62,75 +62,24 @@ void	sort_stack(long *a, long *b, int *size)
 	print_stacks(a, b, size);
 }
 
-void sort_chunk(long *stack_b, int chunk_size)
+void	k_sort(long *a, long *b, int size, int k)
 {
-    int i, j;
+	int i, index;
 
-    for (i = 0; i < chunk_size - 1; i++) {
-        for (j = 0; j < chunk_size - i - 1; j++) {
-            // Rotate to the jth element
-            while (j-- > 0)
-                rb(stack_b, &chunk_size, 1);
-
-            // If the current element is greater than the next
-            if (stack_b[0] > stack_b[1]) {
-                // Swap them
-                sb(stack_b, &chunk_size, 1);
-            }
-
-            // Rotate back to the start
-            while (j++ < chunk_size - 1)
-                rrb(stack_b, &chunk_size, 1);
+    // Push elements from a to b
+    for (i = 0; i < size; i++) {
+        index = get_index_of_num(a, i, &size); // assuming this function exists
+        if (index <= k) {
+            pb(b, a, &size, 1); // assuming pb function exists
+            rb(b, &size, 1); // assuming rb function exists
+        } else {
+            ra(a, &size, 1); // assuming ra function exists
         }
     }
-}
 
-void merge_chunks(long *stack_a, int size)
-{
-	int i = 0;
-    int j = size / 2; // assuming two chunks to merge
-
-    while (i < size / 2 && j < size) {
-        // Rotate to the ith element
-        while (i-- > 0)
-            ra(stack_a, &size, 1);
-
-        // Rotate to the jth element
-        while (j-- > i)
-            ra(stack_a, &size, 1);
-
-        // If the current element is greater than the next
-        if (stack_a[0] > stack_a[1]) {
-            // Swap them
-            sa(stack_a, &size, 1);
-        }
-
-        // Rotate back to the start
-        while (j++ < size - 1)
-            rra(stack_a, &size, 1);
-
-        i++;
-        j++;
-    }
-}
-
-void k_sort(long *a, long *b, int size, int k)
-{
-    int chunk_size = size / k;
-
-    // Divide the array into k chunks and sort each chunk
-    for (int i = 0; i < k; i++) {
-        for (int j = 0; j < chunk_size; j++) {
-            pb(b, a, &size, 1);
-        }
-        sort_chunk(b, chunk_size);
-    }
-
-    // Merge the chunks
-    for (int i = 0; i < k; i++) {
-        for (int j = 0; j < chunk_size; j++) {
-            pa(a, b, &size, 1);
-        }
-        merge_chunks(a, size);
+    // Push elements back from b to a
+    while (!is_stack_empty(b, &size)) { // assuming is_stack_empty function exists
+        pa(a, b, &size, 1); // assuming pa function exists
+        rb(b, &size, 1); // assuming rb function exists
     }
 }

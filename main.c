@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jonask <jonask@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:40:08 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/19 10:35:47 by jonask           ###   ########.fr       */
+/*   Updated: 2023/12/19 15:10:37 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	sort_stack(stack_a, stack_b, &size);
-	// k_sort(stack_a, stack_b, size, 2);
+	// k_sort(stack_a, stack_b, size, ft_sqrt(size) * 1.6);
 	print_stacks(stack_a, stack_b, &size);
 	end_program(stack_a, stack_b);
 	return (0);

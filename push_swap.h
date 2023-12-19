@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:42:33 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/18 15:27:03 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/19 15:20:20 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,18 @@ void	sort_stack(long *a, long *b, int *size);
 void	k_sort(long *a, long *b, int size, int k);
 
 void	log_error(long *stack_a, long *stack_b);
-int		ft_isnumber(char *str);
+int		ft_isnumber(char *str);	
 void	end_program(long *stack_a, long *stack_b);
 void	print_stacks(long *stack_a, long *stack_b, int *size);
 
 int		is_valid_input(char **argv, int argc);
 int		args_to_stack(int argc, char **argv, long *stack, int *size);
 int		setup_second_stack(long *stack_b, long *stack_a, int *size);
+int		ft_sqrt(int num);
 
 int		get_index_of_smallest_num(long *stack, int *size);
+int		get_index_of_num(long *stack, long num, int *size);
+int		get_curr_stack_height(long *stack, int *size);
 int		is_stack_empty(long *stack, int *size);
 
 #endif

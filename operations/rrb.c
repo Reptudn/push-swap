@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:09:05 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/15 14:17:40 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/19 15:20:44 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ void	rrb(long *stack_b, int *size, int print)
 {
 	long tmp;
     int i, j;
+    int height = get_curr_stack_height(stack_b, size);
 
-    tmp = stack_b[*size - 1];
-    i = *size - 1;
-    j = *size - 1;
+    tmp = stack_b[height - 1];
+    i = height - 1;
+    j = height - 1;
 
     while (i > 0) {
         stack_b[i] = stack_b[i - 1];
@@ -30,12 +31,12 @@ void	rrb(long *stack_b, int *size, int print)
     stack_b[0] = tmp;
 
     // Move all NOTHING values to the bottom of the stack
-    for (i = 0; i < *size; i++) {
+    for (i = 0; i < height; i++) {
         if (stack_b[i] == NOTHING) {
-            for (j = i; j < *size - 1; j++) {
+            for (j = i; j < height - 1; j++) {
                 stack_b[j] = stack_b[j + 1];
             }
-            stack_b[*size - 1] = NOTHING;
+            stack_b[height - 1] = NOTHING;
         }
     }
 
