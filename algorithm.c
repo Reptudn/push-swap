@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
+/*   By: jonask <jonask@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:54:59 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/18 15:30:14 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/19 10:57:11 by jonask           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,21 @@ int	is_sorted(long *stack_a, long *stack_b, int *size)
 		return (0);
 	return (1);
 }
-// using laying v sort
+// rra and rrb are not working cuz they reverse rotate but then put all the numbers
+// on the bottom of the stack and the nothings above instead of the nothings on
+// the bottom and the numbers on top
 void	sort_stack(long *a, long *b, int *size)
 {
 	int		index;
 
 	if (is_sorted(a, b, size))
 		return ;
+    pb(b, a, size, 1);
+    pb(b, a, size, 1);
+    pb(b, a, size, 1);
+    sa(a, size, 1);
+    sb(b, size, 1);
+    return ;
 	while (!is_stack_empty(a, size))
 	{
 		index = get_index_of_smallest_num(a, size);

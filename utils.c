@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
+/*   By: jonask <jonask@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 14:11:23 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/15 10:13:27 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/19 10:41:08 by jonask           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	get_index_of_smallest_num(long *stack, int *size)
 
 	smallest = 2147483648;
 	i = -1;
-	while (++i < *size)
+	while (++i < *size && stack[i] != NOTHING)
 	{
 		if (stack[i] == NOTHING)
 			continue ;
