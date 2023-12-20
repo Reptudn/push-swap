@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 10:14:39 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/20 11:34:20 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/20 11:45:09 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ t_stack_element	*stack_get_first(t_stack_element *stack)
 {
 	t_stack_element	*first;
 
-	write(1, "s\n", 2);
 	first = stack;
 	while (first && first->previous)
 		first = first->previous;
