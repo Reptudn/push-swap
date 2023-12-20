@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:42:02 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/18 15:18:02 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/20 11:32:01 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void	print_stacks(long *stack_a, long *stack_b, int *size)
+void	print_stacks(t_stacks *stacks)
 {
-	int		i;
+	t_stack_element	*first_a;
+	t_stack_element	*first_b;
 
-	i = -1;
-	write(1, "----------\n", 11);
-	printf("|a\tb|\n---(%d)----\n", *size);
-	while (++i < *size)
+	first_a = stack_get_first(stacks->a);
+	first_b = stack_get_first(stacks->b);
+	printf("Stack A: ");
+	while (first_a)
 	{
-		if (stack_a[i] == NOTHING)
-			printf("|%s\t", "X");
-		else
-			printf("|%ld\t", stack_a[i]);
-		if (stack_b[i] == NOTHING)
-			printf("%s\n", "X");
-		else
-			printf("%ld\n", stack_b[i]);
+		printf("%d ", first_a->num);
+		first_a = first_a->next;
 	}
-	write(1, "----------\n", 11);
+	printf("\nStack B: ");
+	while (first_b)
+	{
+		printf("%d ", first_b->num);
+		first_b = first_b->next;
+	}
+	printf("\n");
 }
 
 void	end_program(long *stack_a, long *stack_b)

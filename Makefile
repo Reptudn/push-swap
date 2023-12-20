@@ -4,6 +4,8 @@ SRC		:= 	./log.c \
 			./check.c \
 			./algorithm.c \
 			./utils.c \
+			./leakfree.c \
+			./stack_utils.c \
 			./args_to_stack.c \
 			./operations/pa.c \
 			./operations/pb.c \

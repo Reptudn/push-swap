@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:42:33 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/19 15:20:20 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/20 11:29:06 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,34 +21,58 @@
 # define NOTHING 5000000000
 # define NORMAL_SIZE 500
 
-void	pa(long *a, long *b, int *size, int print);
-void	pb(long *b, long *a, int *size, int print);
-void	ra(long *stack_a, int *size, int print);
-void	rb(long *stack_b, int *size, int print);
-void	rr(long *stack_a, long *stack_b, int *size);
-void	rra(long *stack_a, int *size, int print);
-void	rrb(long *stack_b, int *size, int print);
-void	rrr(long *stack_a, long *stack_b, int *size);
-void	sa(long *stack_a, int *size, int print);
-void	sb(long *stack_b, int *size, int print);
-void	ss(long *stack_a, int *size, long *stack_b);
+typedef struct s_stack_element
+{
+	int						num;
+	struct s_stack_element	*next;
+	struct s_stack_element	*previous;
+}							t_stack_element;
 
-void	sort_stack(long *a, long *b, int *size);
-void	k_sort(long *a, long *b, int size, int k);
+typedef struct s_stacks
+{
+	t_stack_element	*a;
+	t_stack_element	*b;
+	int				*size;
+}				t_stacks;
 
-void	log_error(long *stack_a, long *stack_b);
-int		ft_isnumber(char *str);	
-void	end_program(long *stack_a, long *stack_b);
-void	print_stacks(long *stack_a, long *stack_b, int *size);
+// stack utils
+t_stack_element	*stack_new(int value);
+void			stack_push(t_stack_element *stack, t_stack_element *new_elem);
+t_stack_element	*stack_get_first(t_stack_element *stack);
+t_stack_element	*stack_get_last(t_stack_element *stack);
+int				get_stack_size(t_stack_element *stack);
 
-int		is_valid_input(char **argv, int argc);
-int		args_to_stack(int argc, char **argv, long *stack, int *size);
-int		setup_second_stack(long *stack_b, long *stack_a, int *size);
-int		ft_sqrt(int num);
+int				clear_contents(char **contents, int i);
 
-int		get_index_of_smallest_num(long *stack, int *size);
-int		get_index_of_num(long *stack, long num, int *size);
-int		get_curr_stack_height(long *stack, int *size);
-int		is_stack_empty(long *stack, int *size);
+void			pa(long *a, long *b, int *size, int print);
+void			pb(long *b, long *a, int *size, int print);
+void			ra(long *stack_a, int *size, int print);
+void			rb(long *stack_b, int *size, int print);
+void			rr(long *stack_a, long *stack_b, int *size);
+void			rra(long *stack_a, int *size, int print);
+void			rrb(long *stack_b, int *size, int print);
+void			rrr(long *stack_a, long *stack_b, int *size);
+void			sa(long *stack_a, int *size, int print);
+void			sb(long *stack_b, int *size, int print);
+void			ss(long *stack_a, int *size, long *stack_b);
+
+void			sort_stack(long *a, long *b, int *size);
+void			k_sort(long *a, long *b, int size, int k);
+
+void			log_error(long *stack_a, long *stack_b);
+int				ft_isnumber(char *str);	
+void			end_program(long *stack_a, long *stack_b);
+void			print_stacks(t_stacks *stacks);
+
+int				is_valid_input(char **argv, int argc);
+int				args_to_stack(int argc, char **argv, t_stacks *stacks,
+					int *size);
+int				setup_second_stack(long *stack_b, long *stack_a, int *size);
+int				ft_sqrt(int num);
+
+int				get_index_of_smallest_num(long *stack, int *size);
+int				get_index_of_num(long *stack, long num, int *size);
+int				get_curr_stack_height(long *stack, int *size);
+int				is_stack_empty(long *stack, int *size);
 
 #endif

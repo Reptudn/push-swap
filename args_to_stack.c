@@ -6,33 +6,43 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 08:52:08 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/15 10:48:04 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/20 11:29:48 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	string_to_stack(char *arg, long *stack, int *size)
+int	string_to_stack(char *arg, t_stacks *stacks, int *size)
 {
-	int	num;
-	int	i;
+	t_stack_element	*elem;
 
-	if (*size + 1 > NORMAL_SIZE)
+	if (!stacks)
 	{
-		stack = realloc(stack, ((*size) + 1) * sizeof(int));
-		if (!stack)
+		stacks = (t_stacks *)malloc(sizeof(t_stacks));
+		if (!stacks)
 			return (0);
+		stacks->a = 0;
+		stacks->b = 0;
 	}
-	num = ft_atoi(arg);
-	i = -1;
-	while (++i < *size)
-		if (stack[i] == num)
+	if (!stacks->a)
+	{
+		stacks->a = stack_new(ft_atoi(arg));
+		if (!stacks->a)
 			return (0);
-	stack[(*size)++] = num;
+		(*size)++;
+	}
+	else
+	{
+		elem = stack_new(ft_atoi(arg));
+		if (!elem)
+			return (0);
+		stack_push(stacks->a, elem);
+		(*size)++;
+	}
 	return (1);
 }
 
-int	args_to_stack(int argc, char **argv, long *stack, int *size)
+int	args_to_stack(int argc, char **argv, t_stacks *stacks, int *size)
 {
 	int		i;
 	int		j;
@@ -49,14 +59,13 @@ int	args_to_stack(int argc, char **argv, long *stack, int *size)
 				return (0);
 			while (contents[++j])
 			{
-				if (!string_to_stack(contents[j], stack, size))
-					return (free(contents[j]), free(contents), free(stack), 0);
-				free(contents[j]);
+				if (!string_to_stack(contents[j], stacks, size))
+					return (clear_contents(contents, i));
 			}
-			free(contents);
+			clear_contents(contents, 0);
 		}
-		else if (!string_to_stack(argv[i], stack, size))
-			return (free(stack), 0);
+		else if (!string_to_stack(argv[i], stacks, size))
+			return (0);
 	}
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:40:08 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/19 15:10:37 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/20 11:31:19 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,30 @@
 
 int	main(int argc, char **argv)
 {
-	long		*stack_a;
-	long		*stack_b;
+	t_stacks	*stacks;
 	int			size;
 
-	stack_a = malloc(NORMAL_SIZE * sizeof(long));
-	stack_b = malloc(NORMAL_SIZE * sizeof(long));
+	stacks = 0;
 	size = 0;
 	if (argc < 2 || !is_valid_input(argv, argc))
 	{
 		write(1, "Error\n", 6);
 		return (1);
 	}
-	if (!args_to_stack(argc, argv, stack_a, &size))
+	if (!args_to_stack(argc, argv, stacks, &size))
 	{
 		write(1, "Error\n", 6);
 		return (1);
 	}
-	if (!setup_second_stack(stack_b, stack_a, &size))
-	{
-		write(1, "Error\n", 6);
-		return (1);
-	}
-	sort_stack(stack_a, stack_b, &size);
+	print_stacks(stacks);
+	// if (!setup_second_stack(stack_b, stack_a, &size))
+	// {
+	// 	write(1, "Error\n", 6);
+	// 	return (1);
+	// }
+	// sort_stack(stack_a, stack_b, &size);
 	// k_sort(stack_a, stack_b, size, ft_sqrt(size) * 1.6);
-	print_stacks(stack_a, stack_b, &size);
-	end_program(stack_a, stack_b);
+	// print_stacks(stack_a, stack_b, &size);
+	// end_program(stack_a, stack_b);
 	return (0);
 }
