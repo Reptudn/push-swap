@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 10:14:39 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/20 11:45:09 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/20 14:30:14 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ t_stack_element	*stack_new(int value)
 	new = (t_stack_element *)malloc(sizeof(t_stack_element));
 	if (!new)
 		return (0);
-	new->num = value;
+	new->num = malloc(sizeof(int));
+	if (!new->num)
+		return (0);
+	*(new->num) = value;
 	new->next = 0;
 	new->previous = 0;
 	return (new);
@@ -38,6 +41,8 @@ t_stack_element	*stack_get_first(t_stack_element *stack)
 {
 	t_stack_element	*first;
 
+	if (!stack)
+		return (0);
 	first = stack;
 	while (first && first->previous)
 		first = first->previous;
@@ -48,6 +53,8 @@ t_stack_element	*stack_get_last(t_stack_element *stack)
 {
 	t_stack_element	*last;
 
+	if (!stack)
+		return (0);
 	last = stack;
 	while (last->next)
 		last = last->next;

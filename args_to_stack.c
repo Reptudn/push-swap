@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 08:52:08 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/20 11:54:41 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/20 13:42:53 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int	string_to_stack(char *arg, t_stacks *stacks, int *size)
+int	string_to_stack(char *arg, t_stacks *stacks)
 {
 	t_stack_element	*elem;
 
@@ -32,8 +32,6 @@ int	string_to_stack(char *arg, t_stacks *stacks, int *size)
 		stacks->a = stack_new(ft_atoi(arg));
 		if (!stacks->a)
 			return (0);
-		(*size)++;
-		printf("%d\n", elem->num);
 	}
 	else
 	{
@@ -41,20 +39,17 @@ int	string_to_stack(char *arg, t_stacks *stacks, int *size)
 		if (!elem)
 			return (0);
 		stack_push(stacks->a, elem);
-		(*size)++;
-		printf("%d\n", elem->num);
 	}
 	return (1);
 }
 
-int	args_to_stack(int argc, char **argv, t_stacks *stacks, int *size)
+int	args_to_stack(int argc, char **argv, t_stacks *stacks)
 {
 	int		i;
 	int		j;
 	char	**contents;
 
 	i = 0;
-	stacks = malloc(sizeof(t_stacks));
 	while (++i < argc)
 	{
 		if (ft_strchr(argv[i], ' '))
@@ -65,15 +60,14 @@ int	args_to_stack(int argc, char **argv, t_stacks *stacks, int *size)
 				return (0);
 			while (contents[++j])
 			{
-				if (!string_to_stack(contents[j], stacks, size))
+				if (!string_to_stack(contents[j], stacks))
 					return (clear_contents(contents, i));
 			}
 			clear_contents(contents, 0);
 		}
-		else if (!string_to_stack(argv[i], stacks, size))
+		else if (!string_to_stack(argv[i], stacks))
 			return (0);
 	}
-	write(1, "t\n", 2);
 	return (1);
 }
 

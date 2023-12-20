@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:42:33 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/20 11:29:06 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/20 14:25:48 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 typedef struct s_stack_element
 {
-	int						num;
+	int						*num;
 	struct s_stack_element	*next;
 	struct s_stack_element	*previous;
 }							t_stack_element;
@@ -33,7 +33,7 @@ typedef struct s_stacks
 	t_stack_element	*a;
 	t_stack_element	*b;
 	int				*size;
-}				t_stacks;
+}					t_stacks;
 
 // stack utils
 t_stack_element	*stack_new(int value);
@@ -44,8 +44,8 @@ int				get_stack_size(t_stack_element *stack);
 
 int				clear_contents(char **contents, int i);
 
-void			pa(long *a, long *b, int *size, int print);
-void			pb(long *b, long *a, int *size, int print);
+void			pb(t_stacks *stacks, int print);
+void			pa(t_stacks *stacks, int print);
 void			ra(long *stack_a, int *size, int print);
 void			rb(long *stack_b, int *size, int print);
 void			rr(long *stack_a, long *stack_b, int *size);
@@ -65,8 +65,7 @@ void			end_program(long *stack_a, long *stack_b);
 void			print_stacks(t_stacks *stacks);
 
 int				is_valid_input(char **argv, int argc);
-int				args_to_stack(int argc, char **argv, t_stacks *stacks,
-					int *size);
+int				args_to_stack(int argc, char **argv, t_stacks *stacks);
 int				setup_second_stack(long *stack_b, long *stack_a, int *size);
 int				ft_sqrt(int num);
 

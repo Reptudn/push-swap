@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:42:02 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/20 11:47:07 by jkauker          ###   ########.fr       */
+/*   Updated: 2023/12/20 14:30:53 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,32 +17,22 @@
 void	print_stacks(t_stacks *stacks)
 {
 	t_stack_element	*first_a;
-	// t_stack_element	*first_b;
+	t_stack_element	*first_b;
 
-	if (!stacks)
-	{
-		printf("Stacks is empty\n");
-		return ;
-	}
-	if (!stacks->a)
-	{
-		printf("Stack A is empty\n");
-		return ;
-	}
 	first_a = stack_get_first(stacks->a);
-	// first_b = stack_get_first(stacks->b);
+	first_b = stack_get_first(stacks->b);
 	printf("Stack A: ");
 	while (first_a)
 	{
-		printf("%d ", first_a->num);
+		printf("%d ", *first_a->num);
 		first_a = first_a->next;
 	}
 	printf("\nStack B: ");
-	// while (first_b)
-	// {
-	// 	printf("%d ", first_b->num);
-	// 	first_b = first_b->next;
-	// }
+	while (first_b)
+	{
+		printf("%d ", *first_b->num);
+		first_b = first_b->next;
+	}
 	printf("\n");
 }
 

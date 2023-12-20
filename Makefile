@@ -7,8 +7,7 @@ SRC		:= 	./log.c \
 			./leakfree.c \
 			./stack_utils.c \
 			./args_to_stack.c \
-			./operations/pa.c \
-			./operations/pb.c \
+			./operations/push.c \
 			./operations/ra.c \
 			./operations/rb.c \
 			./operations/rr.c \
