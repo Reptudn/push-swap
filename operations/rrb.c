@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rrb.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
+/*   By: intra <intra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:09:05 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/20 14:24:18 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/08 13:45:50 by intra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@
 void	rrb(long *stack_b, int *size, int print)
 {
 	int		i;
-	long	tmp;
+	// long	tmp;
 
 	i = *size + 1;
 	while (--i)
 	{
 		if (stack_b[i] != NOTHING)
 		{
-			tmp = stack_b[i];
+			// tmp = stack_b[i];
 			break ;
 		}
 	}

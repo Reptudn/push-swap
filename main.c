@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
+/*   By: intra <intra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:40:08 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/08 14:21:29 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/08 13:45:04 by intra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
-	int			size;
+	// int			size;
 
 	stacks = malloc(sizeof(t_stacks));
-	size = 0;
+	// size = 0;
 	if (argc < 2 || !is_valid_input(argv, argc))
 	{
 		write(1, "Error\n", 6);
