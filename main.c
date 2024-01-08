@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:40:08 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/20 14:31:25 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/08 14:21:29 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,9 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	print_stacks(stacks);
-	pb(stacks, 1);
-	pb(stacks, 1);
-	pb(stacks, 1);
-	pb(stacks, 1);
-	pb(stacks, 1);
+	pb(stacks, 0);
+	pb(stacks, 0);
+	pb(stacks, 0);
 	print_stacks(stacks);
 	// if (!setup_second_stack(stack_b, stack_a, &size))
 	// {

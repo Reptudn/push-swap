@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:07:56 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/20 15:20:42 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/08 14:21:18 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,19 @@ void	pa(t_stacks *stacks, int print)
 
 	if (!stacks->b)
 		return ;
-	first = stack_get_first(stacks->b);
+	first = stack_get_first(stacks->a);
 	if (!stacks->a)
 	{
-		stacks->b = first->next;
-		if (stacks->b)
-			stacks->b->previous = 0;
-		else
-			first->next = 0;
 		stacks->a = first;
-		first->previous = 0;
+		stacks->b = first->next;
+		stacks->a->previous = 0;
+		stacks->a->next = 0;
+		stacks->b->previous = 0;
 	}
 	else
 	{
 		stacks->b = first->next;
-		if (stacks->b)
-			stacks->b->previous = 0;
-		else
-			first->next = 0;
+		stacks->b->previous = 0;
 		stack_get_first(stacks->a)->previous = first;
 		first->next = stacks->a;
 		stacks->a = stack_get_first(stacks->a);
@@ -57,21 +52,16 @@ void	pb(t_stacks *stacks, int print)
 	first = stack_get_first(stacks->a);
 	if (!stacks->b)
 	{
-		stacks->a = first->next;
-		if (stacks->a)
-			stacks->a->previous = 0;
-		else
-			first->next = 0;
 		stacks->b = first;
-		first->previous = 0;
+		stacks->a = first->next;
+		stacks->b->previous = 0;
+		stacks->b->next = 0;
+		stacks->a->previous = 0;
 	}
 	else
 	{
 		stacks->a = first->next;
-		if (stacks->a)
-			stacks->a->previous = 0;
-		else
-			first->next = 0;
+		stacks->a->previous = 0;
 		stack_get_first(stacks->b)->previous = first;
 		first->next = stacks->b;
 		stacks->b = stack_get_first(stacks->b);
