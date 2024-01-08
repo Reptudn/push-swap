@@ -6,7 +6,7 @@
 /*   By: intra <intra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:03:15 by intra             #+#    #+#             */
-/*   Updated: 2024/01/08 14:50:57 by intra            ###   ########.fr       */
+/*   Updated: 2024/01/08 15:14:21 by intra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ void	rb(t_stacks *stacks, int print)
 	last = first;
 	while (last->next)
 		last = last->next;
+	first->next = NULL;
 	last->next = first;
 	first->previous = last;
-	stacks->b = first->next;
+	stacks->b = first->next ? first->next : first;
+	stacks->b->previous = NULL;
 	if (print)
 		write(1, "rb\n", 3);
 }
@@ -39,9 +41,11 @@ void	ra(t_stacks *stacks, int print)
 	last = first;
 	while (last->next)
 		last = last->next;
+	first->next = NULL;
 	last->next = first;
 	first->previous = last;
-	stacks->a = first->next;
+	stacks->a = first->next ? first->next : first;
+	stacks->a->previous = NULL;
 	if (print)
 		write(1, "ra\n", 3);
 }
