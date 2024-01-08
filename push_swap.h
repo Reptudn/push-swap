@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
+/*   By: intra <intra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:42:33 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/20 14:25:48 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/08 14:47:11 by intra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ int				clear_contents(char **contents, int i);
 
 void			pb(t_stacks *stacks, int print);
 void			pa(t_stacks *stacks, int print);
-void			ra(long *stack_a, int *size, int print);
-void			rb(long *stack_b, int *size, int print);
-void			rr(long *stack_a, long *stack_b, int *size);
+void			ra(t_stacks *stacks, int print);
+void			rb(t_stacks *stacks, int print);
+void			rr(t_stacks *stacks);
 void			rra(long *stack_a, int *size, int print);
 void			rrb(long *stack_b, int *size, int print);
 void			rrr(long *stack_a, long *stack_b, int *size);
