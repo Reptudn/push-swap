@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:40:08 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/09 09:58:36 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/09 10:08:03 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ int	main(int argc, char **argv)
 	pb(stacks, 0);
 	print_stacks(stacks);
 	printf("---------\n");
-	// rb(stacks, 0);
-	// print_stacks(stacks);
+	rb(stacks, 0);
+	rb(stacks, 0);
+	ra(stacks, 0);
+	print_stacks(stacks);
 	// if (!setup_second_stack(stack_b, stack_a, &size))
 	// {
 	// 	write(1, "Error\n", 6);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: intra <intra@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:03:15 by intra             #+#    #+#             */
-/*   Updated: 2024/01/08 15:14:21 by intra            ###   ########.fr       */
+/*   Updated: 2024/01/09 10:07:15 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,20 @@
 // rb : rotate b - shift up all elements of stack b by 1. The first element
 void	rb(t_stacks *stacks, int print)
 {
-	t_stack_element	*first;
-	t_stack_element	*last;
+	t_stack_element	*first_b;
+	t_stack_element	*last_b;
 
-	first = stack_get_first(stacks->b);
-	last = first;
-	while (last->next)
-		last = last->next;
-	first->next = NULL;
-	last->next = first;
-	first->previous = last;
-	stacks->b = first->next ? first->next : first;
-	stacks->b->previous = NULL;
+	if (!stacks->b)
+		return ;
+	first_b = stack_get_first(stacks->b);
+	if (!first_b->next)
+		return ;
+	stacks->b = first_b->next;
+	stacks->b->previous = 0;
+	last_b = stack_get_last(stacks->b);
+	last_b->next = first_b;
+	first_b->previous = last_b;
+	first_b->next = 0;
 	if (print)
 		write(1, "rb\n", 3);
 }
@@ -34,18 +36,20 @@ void	rb(t_stacks *stacks, int print)
 // ra : rotate a - shift up all elements of stack a by 1. The first element
 void	ra(t_stacks *stacks, int print)
 {
-	t_stack_element	*first;
-	t_stack_element	*last;
+	t_stack_element	*first_a;
+	t_stack_element	*last_a;
 
-	first = stack_get_first(stacks->a);
-	last = first;
-	while (last->next)
-		last = last->next;
-	first->next = NULL;
-	last->next = first;
-	first->previous = last;
-	stacks->a = first->next ? first->next : first;
-	stacks->a->previous = NULL;
+	if (!stacks->a)
+		return ;
+	first_a = stack_get_first(stacks->a);
+	if (!first_a->next)
+		return ;
+	stacks->a = first_a->next;
+	stacks->a->previous = 0;
+	last_a = stack_get_last(stacks->a);
+	last_a->next = first_a;
+	first_a->previous = last_a;
+	first_a->next = 0;
 	if (print)
 		write(1, "ra\n", 3);
 }
