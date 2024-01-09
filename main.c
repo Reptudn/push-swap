@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbornn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:40:08 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/09 10:32:16 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/09 12:09:14 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,6 @@ int	main(int argc, char **argv)
 		write(1, "Error\n", 6);
 		return (1);
 	}
-	pb(stacks, 0);
-	pb(stacks, 0);
-	pb(stacks, 0);
-	pb(stacks, 0);
 	print_stacks(stacks);
-	printf("---------\n");
-	sa(stacks, 0);
-	sb(stacks, 0);
-	// rb(stacks, 0);
-	// rb(stacks, 0);
-	// print_stacks(stacks);
-	// rrb(stacks, 0);
-	printf("---------\n");
-	print_stacks(stacks);
-	// sort_stack(stack_a, stack_b, &size);
-	// k_sort(stack_a, stack_b, size, ft_sqrt(size) * 1.6);
-	// print_stacks(stack_a, stack_b, &size);
-	// end_program(stack_a, stack_b);
 	return (0);
 }

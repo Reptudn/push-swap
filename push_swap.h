@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbornn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:42:33 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/09 10:30:26 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/09 10:58:01 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void			sa(t_stacks *stacks, int print);
 void			sb(t_stacks *stacks, int print);
 void			ss(t_stacks *stacks);
 
-void			sort_stack(long *a, long *b, int *size);
+void			sort_stack(t_stacks *stacks);
 void			k_sort(long *a, long *b, int size, int k);
 
 void			log_error(long *stack_a, long *stack_b);

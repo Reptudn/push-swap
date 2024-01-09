@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
+/*   By: jkauker <jkauker@student.42heilbornn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:54:59 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/20 14:27:48 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/09 12:01:44 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,43 +15,51 @@
 /*
 **	Checks if stack_a is sorted and stack_b is empty.
 */
-int	is_sorted(long *stack_a, long *stack_b, int *size)
+int	is_sorted(t_stacks *stacks)
 {
-	int		i;
+	t_stack_element	*temp;
+	int				last_num;
 
-	i = -1;
-	while (++i < *size - 1)
-		if (stack_a[i] > stack_a[i + 1])
-			return (0);
-	if (!is_stack_empty(stack_b, size))
+	if (stacks->b || !stacks->a)
 		return (0);
+	temp = stack_get_first(stacks->a);
+	last_num = *temp->num;
+	while (temp)
+	{
+		if (*temp->num < last_num)
+			return (0);
+		temp->next = temp->next;
+		temp = temp->next;
+	}
 	return (1);
 }
 
-// rra and rrb are not working cuz they reverse rotate but then put all the nbrs
-// on the bottom of the stack and the nothings above instead of the nothings on
-// the bottom and the numbers on top
-// void	sort_stack(t_stacks stacks, int *size)
-// {
-// 	int		index;
+void	sort_stack(t_stacks *stacks)
+{
+	int				operations;
+    t_stack_element	*temp;
+    int				swapped;
 
-// 	if (is_sorted(a, b, size))
-// 		return ;
-// 	while (!is_stack_empty(a, size))
-// 	{
-// 		index = get_index_of_smallest_num(a, size);
-// 		if (index == 0)
-// 		{
-// 			pb(stacks, 1);
-// 			ra(a, size, 1);
-// 			continue ;
-// 		}
-// 		while (index--)
-// 			ra(a, size, 1);
-// 	}
-// 	while (!is_stack_empty(b, size))
-// 	{
-// 		pa(a, b, size, 1);
-// 		rb(b, size, 1);
-// 	}
-// }
+    operations = 0;
+    do
+    {
+        swapped = 0;
+        temp = stack_get_first(stacks->a);
+        while (temp && temp->next)
+        {
+            if (*temp->num > *temp->next->num)
+            {
+                sa(stacks, 1);
+                operations++;
+                swapped = 1;
+            }
+            ra(stacks, 1);
+            operations++;
+            temp = temp->next;
+        }
+        rra(stacks, 1);
+        operations++;
+    } while (swapped);
+	print_stacks(stacks);
+	printf("operations: %d\n", operations);
+}
