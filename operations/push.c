@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:07:56 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/08 14:21:18 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/09 10:00:34 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,56 +17,36 @@
 
 void	pa(t_stacks *stacks, int print)
 {
-	t_stack_element	*first;
+	t_stack_element	*first_b;
 
 	if (!stacks->b)
 		return ;
-	first = stack_get_first(stacks->a);
-	if (!stacks->a)
-	{
-		stacks->a = first;
-		stacks->b = first->next;
-		stacks->a->previous = 0;
-		stacks->a->next = 0;
-		stacks->b->previous = 0;
-	}
-	else
-	{
-		stacks->b = first->next;
-		stacks->b->previous = 0;
-		stack_get_first(stacks->a)->previous = first;
-		first->next = stacks->a;
-		stacks->a = stack_get_first(stacks->a);
-		first->previous = 0;
-	}
+	first_b = stack_get_first(stacks->b);
+	if (first_b->next)
+		first_b->next->previous = 0;
+	stacks->b = first_b->next;
+	first_b->next = stacks->a;
+	if (stacks->a)
+		stacks->a->previous = first_b;
+	stacks->a = first_b;
 	if (print)
 		write(1, "pa\n", 3);
 }
 
 void	pb(t_stacks *stacks, int print)
 {
-	t_stack_element	*first;
+	t_stack_element	*first_a;
 
 	if (!stacks->a)
 		return ;
-	first = stack_get_first(stacks->a);
-	if (!stacks->b)
-	{
-		stacks->b = first;
-		stacks->a = first->next;
-		stacks->b->previous = 0;
-		stacks->b->next = 0;
-		stacks->a->previous = 0;
-	}
-	else
-	{
-		stacks->a = first->next;
-		stacks->a->previous = 0;
-		stack_get_first(stacks->b)->previous = first;
-		first->next = stacks->b;
-		stacks->b = stack_get_first(stacks->b);
-		first->previous = 0;
-	}
+	first_a = stack_get_first(stacks->a);
+	if (first_a->next)
+		first_a->next->previous = 0;
+	stacks->a = first_a->next;
+	first_a->next = stacks->b;
+	if (stacks->b)
+		stacks->b->previous = first_a;
+	stacks->b = first_a;
 	if (print)
 		write(1, "pb\n", 2);
 }

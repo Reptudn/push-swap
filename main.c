@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: intra <intra@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:40:08 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/08 14:45:13 by intra            ###   ########.fr       */
+/*   Updated: 2024/01/09 09:58:36 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,14 @@ int	main(int argc, char **argv)
 		write(1, "Error\n", 6);
 		return (1);
 	}
+	pb(stacks, 0);
+	pb(stacks, 0);
+	pb(stacks, 0);
+	pb(stacks, 0);
 	print_stacks(stacks);
-	pb(stacks, 0);
-	pb(stacks, 0);
-	pb(stacks, 0);
 	printf("---------\n");
-	rb(stacks, 0);
-	print_stacks(stacks);
+	// rb(stacks, 0);
+	// print_stacks(stacks);
 	// if (!setup_second_stack(stack_b, stack_a, &size))
 	// {
 	// 	write(1, "Error\n", 6);

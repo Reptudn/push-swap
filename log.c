@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   log.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: intra <intra@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:42:02 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/08 14:38:09 by intra            ###   ########.fr       */
+/*   Updated: 2024/01/09 09:53:01 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ void	print_stacks(t_stacks *stacks)
 	printf("Stack A: ");
 	while (first_a)
 	{
-		printf("%d ", *first_a->num);
+		printf("%d\t", *first_a->num);
 		first_a = first_a->next;
 	}
 	printf("\nStack B: ");
 	while (first_b)
 	{
-		printf("%d ", *first_b->num);
+		printf("%d\t", *first_b->num);
 		first_b = first_b->next;
 	}
 	printf("\n");
