@@ -9,9 +9,7 @@ SRC		:= 	./log.c \
 			./args_to_stack.c \
 			./operations/push.c \
 			./operations/rotate.c \
-			./operations/rra.c \
-			./operations/rrb.c \
-			./operations/rrr.c \
+			./operations/reverse_rotate.c \
 			./operations/sa.c \
 			./operations/sb.c \
 			./operations/ss.c

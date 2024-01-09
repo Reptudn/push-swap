@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   log.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
+/*   By: jkauker <jkauker@student.42heilbornn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:42:02 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/09 09:53:01 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/09 10:16:48 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,23 @@ void	print_stacks(t_stacks *stacks)
 	printf("\n");
 }
 
-void	end_program(long *stack_a, long *stack_b)
+void	end_program(t_stacks *stacks)
 {
-	free(stack_a);
-	free(stack_b);
-	// system("leaks push_swap");
-	// printf("Sort Success\n");
+	t_stack_element	*temp;
+
+	temp = stack_get_first(stacks->a);
+	while (temp)
+	{
+		free(temp->num);
+		temp = temp->next;
+		free(temp);
+	}
+	temp = stack_get_first(stacks->b);
+	while (temp)
+	{
+		free(temp->num);
+		temp = temp->next;
+		free(temp);
+	}
+	system("leaks push_swap");
 }

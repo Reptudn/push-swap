@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
+/*   By: jkauker <jkauker@student.42heilbornn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:40:08 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/09 10:08:03 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/09 10:25:08 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,10 @@ int	main(int argc, char **argv)
 	printf("---------\n");
 	rb(stacks, 0);
 	rb(stacks, 0);
-	ra(stacks, 0);
 	print_stacks(stacks);
-	// if (!setup_second_stack(stack_b, stack_a, &size))
-	// {
-	// 	write(1, "Error\n", 6);
-	// 	return (1);
-	// }
+	rrb(stacks, 0);
+	printf("---------\n");
+	print_stacks(stacks);
 	// sort_stack(stack_a, stack_b, &size);
 	// k_sort(stack_a, stack_b, size, ft_sqrt(size) * 1.6);
 	// print_stacks(stack_a, stack_b, &size);
