@@ -37,7 +37,7 @@ int	is_sorted(t_stacks *stacks)
 int	get_smallest_num(t_stack_element *stack)
 {
 	int				smallest_num;
-	int				smallest_num_index;
+	int				smallest_num_index = 0;  // Initialize to 0
 	int				i;
 	t_stack_element	*temp;
 
@@ -63,10 +63,9 @@ void	sort_stack(t_stacks *stacks)
 	int				a;
 
 	operations = 0;
-	while (stacks->a && !is_sorted(stacks))
+	while (stacks->a)
 	{
 		a = get_smallest_num(stacks->a);
-		printf("a: %d\n", a);
 		if (a > get_stack_size(stacks->a) / 2)
 		{
 			a = get_stack_size(stacks->a) - a;
@@ -85,13 +84,10 @@ void	sort_stack(t_stacks *stacks)
 			}
 		}
 		pb(stacks, 0);
-		printf("%p", (void *)&stacks->a);
-		// return; // TODO: there is an error when checking if the stack is empty
 	}
-	while (stacks->b && !is_sorted(stacks))
+	while (stacks->b)
 	{
 		pa(stacks, 1);
 		operations++;
 	}
-	print_stacks(stacks);
 }
