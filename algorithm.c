@@ -85,7 +85,8 @@ void	sort_stack(t_stacks *stacks)
 			}
 		}
 		pb(stacks, 0);
-		return; // TODO: there is an error when checking fi the stack is empty
+		printf("%p", (void *)&stacks->a);
+		// return; // TODO: there is an error when checking if the stack is empty
 	}
 	while (stacks->b && !is_sorted(stacks))
 	{

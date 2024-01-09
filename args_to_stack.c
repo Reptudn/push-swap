@@ -14,11 +14,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int	is_number_in_stack(int num, t_stack_element *stack)
+{
+	t_stack_element	*temp;
+
+	temp = stack_get_first(stack);
+	while (temp)
+	{
+		if (*temp->num == num)
+			return (1);
+		temp = temp->next;
+	}
+	return (0);
+}
+
 int	string_to_stack(char *arg, t_stacks *stacks)
 {
 	t_stack_element	*elem;
 
 	elem = 0;
+	if (is_number_in_stack(ft_atoi(arg), stacks->a))
+		return (0);
 	if (!stacks)
 	{
 		stacks = (t_stacks *)malloc(sizeof(t_stacks));
