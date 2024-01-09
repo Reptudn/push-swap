@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   leakfree.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
+/*   By: jkauker <jkauker@student.42heilbornn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 11:06:53 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/20 11:21:38 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/09 10:27:12 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,27 +21,25 @@ int	clear_contents(char **contents, int i)
 	return (0);
 }
 
-void	clear_stack(t_stack_element *stack)
-{
-	t_stack_element	*first;
-	t_stack_element	*tmp;
-
-	first = stack_get_first(stack);
-	while (first)
-	{
-		tmp = first->next;
-		free(first);
-		first = tmp;
-	}
-}
-
 void	stack_list_clear(t_stacks *stacks)
 {
+	t_stack_element	*temp;
+
 	if (!stacks)
 		return ;
-	if (stacks->a)
-		clear_stack(stacks->a);
-	if (stacks->b)
-		clear_stack(stacks->b);
+	temp = stack_get_first(stacks->a);
+	while (temp)
+	{
+		free(temp->num);
+		temp = temp->next;
+		free(temp);
+	}
+	temp = stack_get_first(stacks->b);
+	while (temp)
+	{
+		free(temp->num);
+		temp = temp->next;
+		free(temp);
+	}
 	free(stacks);
 }

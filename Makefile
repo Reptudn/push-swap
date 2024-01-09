@@ -10,9 +10,7 @@ SRC		:= 	./log.c \
 			./operations/push.c \
 			./operations/rotate.c \
 			./operations/reverse_rotate.c \
-			./operations/sa.c \
-			./operations/sb.c \
-			./operations/ss.c
+			./operations/swap.c
 CFLAGS	:= -Wall -Wextra -Werror
 CC		:= cc
 INCLUDE	:= -I./lib/libft/libft.a -I./lib/ft_printf/libftprintf.a 
