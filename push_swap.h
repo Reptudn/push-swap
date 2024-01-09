@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbornn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:42:33 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/09 10:58:01 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/09 14:08:44 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void			k_sort(long *a, long *b, int size, int k);
 
 void			log_error(long *stack_a, long *stack_b);
 int				ft_isnumber(char *str);	
-void			end_program(t_stacks *stacks);
+void			stack_list_clear(t_stacks *stacks);
 void			print_stacks(t_stacks *stacks);
 
 int				is_valid_input(char **argv, int argc);
@@ -73,5 +73,6 @@ int				get_index_of_smallest_num(long *stack, int *size);
 int				get_index_of_num(long *stack, long num, int *size);
 int				get_curr_stack_height(long *stack, int *size);
 int				is_stack_empty(long *stack, int *size);
+int				get_stack_size(t_stack_element *stack);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   args_to_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
+/*   By: jkauker <jkauker@student.42heilbornn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 08:52:08 by jkauker           #+#    #+#             */
-/*   Updated: 2023/12/20 13:42:53 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/09 13:39:18 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,17 +71,3 @@ int	args_to_stack(int argc, char **argv, t_stacks *stacks)
 	return (1);
 }
 
-int	setup_second_stack(long *stack_b, long *stack_a, int *size)
-{
-	int		i;
-
-	i = 0;
-	if (!stack_b)
-	{
-		free(stack_a);
-		return (0);
-	}
-	while (i < *size)
-		stack_b[i++] = NOTHING;
-	return (1);
-}
