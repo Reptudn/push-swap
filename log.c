@@ -22,12 +22,16 @@ void	print_stacks(t_stacks *stacks)
 	first_a = stack_get_first(stacks->a);
 	first_b = stack_get_first(stacks->b);
 	printf("Stack A: ");
+	if (!first_a)
+		printf("empty");
 	while (first_a)
 	{
 		printf("%d\t", *first_a->num);
 		first_a = first_a->next;
 	}
 	printf("\nStack B: ");
+	if (!first_a)
+		printf("empty");
 	while (first_b)
 	{
 		printf("%d\t", *first_b->num);

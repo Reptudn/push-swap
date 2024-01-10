@@ -29,7 +29,5 @@ int	main(int argc, char **argv)
 	}
 	print_stacks(stacks);
 	sort_stack(stacks);
-	print_stacks(stacks);
-	// stack_list_clear(stacks);
 	return (0);
 }

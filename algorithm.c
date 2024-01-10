@@ -37,12 +37,13 @@ int	is_sorted(t_stacks *stacks)
 int	get_smallest_num(t_stack_element *stack)
 {
 	int				smallest_num;
-	int				smallest_num_index = 0;  // Initialize to 0
+	int				smallest_num_index;
 	int				i;
 	t_stack_element	*temp;
 
 	temp = stack_get_first(stack);
 	smallest_num = *temp->num;
+	smallest_num_index = 0;
 	i = 0;
 	while (temp)
 	{
@@ -59,8 +60,9 @@ int	get_smallest_num(t_stack_element *stack)
 
 void	sort_stack(t_stacks *stacks)
 {
-	int				operations;
-	int				a;
+	int	operations;
+	int	a;
+	int	rra_count = 0;
 
 	operations = 0;
 	while (stacks->a)
@@ -74,6 +76,8 @@ void	sort_stack(t_stacks *stacks)
 				rra(stacks, 1);
 				operations++;
 			}
+			rra_count++;
+			printf("rra_count: %d\n", rra_count);
 		}
 		else
 		{
@@ -83,11 +87,18 @@ void	sort_stack(t_stacks *stacks)
 				operations++;
 			}
 		}
-		pb(stacks, 0);
+		pb(stacks, 1);
+		operations++;
 	}
+	print_stacks(stacks);
 	while (stacks->b)
 	{
 		pa(stacks, 1);
 		operations++;
 	}
+	print_stacks(stacks);
+	if (is_sorted(stacks))
+		ft_printf("OK (%d)\n", operations);
+	else
+		ft_printf("KO (%d)\n", operations);
 }
