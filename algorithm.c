@@ -58,10 +58,11 @@ int	get_smallest_num(t_stack_element *stack)
 	return (smallest_num_index);
 }
 
+// old way
 void	sort_stack(t_stacks *stacks)
 {
-	int	operations;
-	int	a;
+	int			operations;
+	int			a;
 
 	operations = 0;
 	while (stacks->a)

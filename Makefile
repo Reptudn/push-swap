@@ -3,6 +3,7 @@ SRC		:= 	./log.c \
 			./main.c \
 			./check.c \
 			./algorithm.c \
+			./algorithm_new.c \
 			./utils.c \
 			./leakfree.c \
 			./stack_utils.c \

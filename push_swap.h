@@ -57,7 +57,10 @@ void			sb(t_stacks *stacks, int print);
 void			ss(t_stacks *stacks);
 
 void			sort_stack(t_stacks *stacks);
+void			sort_stack_new(t_stacks *stacks);
 void			k_sort(long *a, long *b, int size, int k);
+
+int				get_smallest_num(t_stack_element *stack);
 
 void			log_error(long *stack_a, long *stack_b);
 int				ft_isnumber(char *str);	
