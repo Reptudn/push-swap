@@ -24,10 +24,11 @@ int	main(int argc, char **argv)
 	}
 	if (!args_to_stack(argc, argv, stacks))
 	{
+		stack_list_clear(stacks);
 		write(1, "Error\n", 6);
 		return (1);
 	}
-	print_stacks(stacks);
 	sort_stack(stacks);
+	stack_list_clear(stacks);
 	return (0);
 }

@@ -48,5 +48,5 @@ void	pb(t_stacks *stacks, int print)
 		stacks->b->previous = first_a;
 	stacks->b = first_a;
 	if (print)
-		write(1, "pb\n", 2);
+		write(1, "pb\n", 3);
 }

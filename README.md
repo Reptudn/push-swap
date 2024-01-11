@@ -8,3 +8,7 @@ https://zainab-dnaya.medium.com/fastest-push-swap-algorithm-2f510028602b
 |---------|------------|
 | 100 | less than 700 |
 | 500 | less than 5500 |
+
+## Leaks
+- Valid Input: None
+- Invalid Input: ~24 bytes

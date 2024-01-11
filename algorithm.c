@@ -62,7 +62,6 @@ void	sort_stack(t_stacks *stacks)
 {
 	int	operations;
 	int	a;
-	int	rra_count = 0;
 
 	operations = 0;
 	while (stacks->a)
@@ -76,8 +75,6 @@ void	sort_stack(t_stacks *stacks)
 				rra(stacks, 1);
 				operations++;
 			}
-			rra_count++;
-			printf("rra_count: %d\n", rra_count);
 		}
 		else
 		{
@@ -90,13 +87,11 @@ void	sort_stack(t_stacks *stacks)
 		pb(stacks, 1);
 		operations++;
 	}
-	print_stacks(stacks);
 	while (stacks->b)
 	{
 		pa(stacks, 1);
 		operations++;
 	}
-	print_stacks(stacks);
 	if (is_sorted(stacks))
 		ft_printf("OK (%d)\n", operations);
 	else

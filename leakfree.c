@@ -24,22 +24,26 @@ int	clear_contents(char **contents, int i)
 void	stack_list_clear(t_stacks *stacks)
 {
 	t_stack_element	*temp;
+	t_stack_element	*next;
 
 	if (!stacks)
 		return ;
 	temp = stack_get_first(stacks->a);
 	while (temp)
 	{
+		next = temp->next;
 		free(temp->num);
-		temp = temp->next;
 		free(temp);
+		temp = next;
 	}
 	temp = stack_get_first(stacks->b);
 	while (temp)
 	{
+		next = temp->next;
 		free(temp->num);
-		temp = temp->next;
 		free(temp);
+		temp = next;
 	}
-	free(stacks);
+	if (stacks)
+		free(stacks);
 }

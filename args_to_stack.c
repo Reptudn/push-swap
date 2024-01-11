@@ -86,4 +86,3 @@ int	args_to_stack(int argc, char **argv, t_stacks *stacks)
 	}
 	return (1);
 }
-
