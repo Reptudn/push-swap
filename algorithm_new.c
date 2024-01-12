@@ -6,7 +6,7 @@
 /*   By: intra <intra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:54:59 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/12 15:33:42 by intra            ###   ########.fr       */
+/*   Updated: 2024/01/12 15:38:43 by intra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,11 +146,16 @@ void	sort_stack_new(t_stacks *stacks)
 	static int	key_call = 1;
 	int			key_number;
 
+	if (is_sorted(stacks))
+		return ;
 	while (stacks->a && key_number != -2) //get_stack_size(stacks->a) > 3
 	{
 		key_number = get_key_number(stacks->a, key_call);
 		if (key_number == -2)
+		{
+			write(1, "keynbr -2\n", 11);
 			break ;
+		}
 		printf("key_number = %d\n", key_number);
 		printf("key_call = %d\n", key_call);
 		if (key_number == -1)
@@ -162,7 +167,5 @@ void	sort_stack_new(t_stacks *stacks)
 		push_efficienlty_to_b(stacks, get_key_number(stacks->a, key_call));
 		key_call++;
 	}
-	print_stacks(stacks);
-	return ;
 	push_back_efficently(stacks);
 }

@@ -77,4 +77,6 @@ int				get_curr_stack_height(long *stack, int *size);
 int				is_stack_empty(long *stack, int *size);
 int				get_stack_size(t_stack_element *stack);
 
+int				is_sorted(t_stacks *stacks);
+
 #endif

@@ -28,7 +28,12 @@ int	main(int argc, char **argv)
 		write(1, "Error\n", 6);
 		return (1);
 	}
-	sort_stack_new(stacks); //segmentation fault
+	sort_stack_new(stacks);
+	print_stacks(stacks);
+	if (is_sorted(stacks))
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
 	stack_list_clear(stacks);
 	return (0);
 }
