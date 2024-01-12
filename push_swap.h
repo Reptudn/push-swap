@@ -18,8 +18,7 @@
 # include "./lib/ft_printf/ft_printf.h"
 # include "./lib/libft/libft.h"
 
-# define NOTHING 5000000000
-# define NORMAL_SIZE 500
+# define PACK_SIZE 4
 
 typedef struct s_stack_element
 {

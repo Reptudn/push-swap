@@ -6,7 +6,7 @@
 /*   By: intra <intra@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:54:59 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/11 12:37:25 by intra            ###   ########.fr       */
+/*   Updated: 2024/01/12 15:33:42 by intra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	get_key_number(t_stack_element *stack, int call)
 	int				bubble_temp;
 	int				j;
 
+	if (call > PACK_SIZE)
+		return (-2);
 	if (!sorted_array)
 	{
 		size = get_stack_size(stack);
@@ -52,10 +54,10 @@ int	get_key_number(t_stack_element *stack, int call)
 				}
 			}
 		}
+		for (i = 0; i < size; i++)
+			printf("arr[%d] = %d\n", i, sorted_array[i]);
 	}
-	if (call == 0)
-		return (sorted_array[size / 4]);
-	return (sorted_array[(size / 4) * call]);
+	return (sorted_array[(size / PACK_SIZE) * call - 1]);
 }
 
 int	has_smaller_number(t_stack_element *stack, int key_number)
@@ -83,7 +85,7 @@ int	get_next_num_index(t_stack_element *stack, int key_number)
 	size = get_stack_size(stack);
 	temp_front = stack_get_first(stack);
 	temp_back = stack_get_last(stack);
-	while (++i < (size / 2))
+	while (++i < (size / 2) && temp_front && temp_back)
 	{
 		if (*temp_front->num < key_number)
 			return (i);
@@ -102,16 +104,19 @@ void	push_efficienlty_to_b(t_stacks *stacks, int key_number)
 	while (has_smaller_number(stacks->a, key_number))
 	{
 		a = get_next_num_index(stacks->a, key_number);
+		printf("a = %d\n", a);
+		if (a == -1)
+			return ;
 		if (a > get_stack_size(stacks->a) / 2)
 		{
 			a = get_stack_size(stacks->a) - a;
 			while (a--)
-				rra(stacks, 1);
+				rra(stacks, 0);
 		}
 		else
 			while (a--)
-				ra(stacks, 1);
-		pb(stacks, 1);
+				ra(stacks, 0);
+		pb(stacks, 0);
 	}
 }
 
@@ -119,6 +124,7 @@ void	push_back_efficently(t_stacks *stacks)
 {
 	int	a;
 
+	return ;
 	while (stacks->b)
 	{
 		a = get_smallest_num(stacks->b);
@@ -126,23 +132,37 @@ void	push_back_efficently(t_stacks *stacks)
 		{
 			a = get_stack_size(stacks->b) - a;
 			while (a--)
-				rrb(stacks, 1);
+				rrb(stacks, 0);
 		}
 		else
 			while (a--)
-				ra(stacks, 1);
-		pa(stacks, 1);
+				ra(stacks, 0);
+		pa(stacks, 0);
 	}
 }
 
 void	sort_stack_new(t_stacks *stacks)
 {
-	static int	key_call = 0;
+	static int	key_call = 1;
+	int			key_number;
 
-	while (stacks->a) //get_stack_size(stacks->a) > 3
+	while (stacks->a && key_number != -2) //get_stack_size(stacks->a) > 3
 	{
+		key_number = get_key_number(stacks->a, key_call);
+		if (key_number == -2)
+			break ;
+		printf("key_number = %d\n", key_number);
+		printf("key_call = %d\n", key_call);
+		if (key_number == -1)
+		{
+			write(1, "keynbr ", 7);
+			write(1, "Error\n", 6);
+			return ;
+		}
 		push_efficienlty_to_b(stacks, get_key_number(stacks->a, key_call));
 		key_call++;
 	}
+	print_stacks(stacks);
+	return ;
 	push_back_efficently(stacks);
 }
