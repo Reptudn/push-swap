@@ -11,17 +11,6 @@
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include <stdlib.h>
-
-int	is_integer(char *str)
-{
-	if (ft_strlen(str) > 11)
-		return (0);
-	if (ft_strlen(str) == 11 && (str[0] != '-' || str[0] != '+'))
-		return (0);
-	// other checks if integer
-	return (1);
-}
 
 int	ft_isnumber(char *str)
 {

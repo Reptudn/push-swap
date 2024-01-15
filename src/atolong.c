@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-int	get_num(const char *nptr, int i)
+long	get_num(const char *nptr, int i)
 {
 	long	num;
 
@@ -26,15 +26,14 @@ int	get_num(const char *nptr, int i)
 		i++;
 	}
 	num /= 10;
-	if (num > 2147483647 || num < -2147483648)
-		return (0); // TODO: Error handling when number is not an int
-	return (1);
+	return (num);
 }
 
 int	is_integer(const char *nptr)
 {
 	int		i;
 	int		prefix;
+	long	num;
 
 	i = 0;
 	prefix = 1;
@@ -48,5 +47,8 @@ int	is_integer(const char *nptr)
 	}
 	if (!(nptr[i] >= '0' && nptr[i] <= '9'))
 		return (0);
-	return (get_num(nptr, i) * prefix);
+	num = get_num(nptr, i) * prefix;
+	if (num > 2147483647 || num < -2147483648)
+		return (0);
+	return (1);
 }

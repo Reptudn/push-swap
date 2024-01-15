@@ -70,6 +70,7 @@ int				is_valid_input(char **argv, int argc);
 int				args_to_stack(int argc, char **argv, t_stacks *stacks);
 int				setup_second_stack(long *stack_b, long *stack_a, int *size);
 int				ft_sqrt(int num);
+int				is_integer(const char *nptr);
 
 int				get_index_of_smallest_num(long *stack, int *size);
 int				get_index_of_num(long *stack, long num, int *size);

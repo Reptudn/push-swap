@@ -13,6 +13,7 @@ SRC		:= 	$(SRC_DIR)log.c \
 			$(SRC_DIR)leakfree.c \
 			$(SRC_DIR)stack_utils.c \
 			$(SRC_DIR)args_to_stack.c \
+			$(SRC_DIR)atolong.c \
 			$(OPERATIONS)
 CFLAGS	:= -Wall -Wextra -Werror
 CC		:= cc
