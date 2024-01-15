@@ -6,19 +6,14 @@
 /*   By: jkauker <jkauker@student.42heilbornn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:54:59 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/15 11:15:25 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/15 14:18:25 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include <stdio.h>
-#include <unistd.h>
 
-// pre-sorts the stack and divides it into 4 parts and then returns
-// the number of the stack size / 4 of the sorted array
-// so that i cna push all numbers over that are lower than that number
-// TODO: handle error when malloc fails
-int	get_key_number(t_stack_element *stack, int call)
+int	get_key_number(t_stack_element *stack, int call, int pack_size)
 {
 	t_stack_element	*temp;
 	static int		*sorted_array = 0;
@@ -27,7 +22,7 @@ int	get_key_number(t_stack_element *stack, int call)
 	int				bubble_temp;
 	int				j;
 
-	if (call > PACK_SIZE)
+	if (call > pack_size)
 		return (-2);
 	if (!sorted_array)
 	{
@@ -57,7 +52,7 @@ int	get_key_number(t_stack_element *stack, int call)
 			}
 		}
 	}
-	return (sorted_array[(size / PACK_SIZE) * call - 1]);
+	return (sorted_array[(size / pack_size) * call - 1]);
 }
 
 int	has_smaller_number(t_stack_element *stack, int key_number)
@@ -131,8 +126,6 @@ void	push_back_efficently(t_stacks *stacks)
 			pa(stacks, 1);
 			continue ;
 		}
-		printf("a: %d\n", a);
-		printf("stacks->b: %d\n", get_stack_size(stacks->b));
 		if (a > get_stack_size(stacks->b) / 2)
 		{
 			a = get_stack_size(stacks->b) - a;
@@ -146,26 +139,65 @@ void	push_back_efficently(t_stacks *stacks)
 	}
 }
 
+void	sort_last_three(t_stacks *stacks)
+{
+	int	a;
+	int	b;
+	int	c;
+
+	a = *stack_get_first(stacks->a)->num;
+	b = *stack_get_first(stacks->a)->next->num;
+	c = *stack_get_last(stacks->a)->num;
+	if (a > b && a > c && b < c)
+		sa(stacks, 1);
+	else if (a > b && a > c && b > c)
+	{
+		sa(stacks, 1);
+		rra(stacks, 1);
+	}
+	else if (a < b && a > c)
+		ra(stacks, 1);
+	else if (a < b && a < c && b > c)
+	{
+		sa(stacks, 1);
+		ra(stacks, 1);
+	}
+	else if (a < b && a < c && b < c)
+		rra(stacks, 1);
+}
+
 void	sort_stack_new(t_stacks *stacks)
 {
-	static int	key_call = 1;
+	int			key_call;
+	int			stack_size;
+	int			pack_size;
 	int			key_number;
 
 	if (is_sorted(stacks))
+		return ;
+	stack_size = get_stack_size(stacks->a);
+	if (stack_size < 4)
 	{
-		printf("is_sorted\n");
+		sort_last_three(stacks);
 		return ;
 	}
-	while (stacks->a && key_number != -2)
+	if (stack_size < 10)
+		pack_size = 1;
+	else if (stack_size <= 100)
+		pack_size = 6;
+	else if (stack_size <= 500)
+		pack_size = 13;
+	else
+		pack_size = 20;
+	key_call = 1;
+	while (stacks->a)
 	{
-		key_number = get_key_number(stacks->a, key_call);
-		if (key_number == -2)
+		key_number = get_key_number(stacks->a, key_call, pack_size);
+		push_efficienlty_to_b(stacks, get_key_number(stacks->a,
+				key_call, pack_size));
+		if (key_number < 0)
 			break ;
-		if (key_number == -1)
-			return ;
-		push_efficienlty_to_b(stacks, get_key_number(stacks->a, key_call));
 		key_call++;
 	}
-	pb(stacks, 1);
 	push_back_efficently(stacks);
 }

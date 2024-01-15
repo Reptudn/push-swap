@@ -18,7 +18,7 @@
 # include "./lib/ft_printf/ft_printf.h"
 # include "./lib/libft/libft.h"
 
-# define PACK_SIZE 4
+# define PACK_SIZE 10
 
 typedef struct s_stack_element
 {

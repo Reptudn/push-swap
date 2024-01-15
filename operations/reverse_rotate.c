@@ -77,20 +77,6 @@ void	rrb(t_stacks *stacks, int print)
 		write(1, "rrb\n", 4);
 }
 
-//void	rrb(t_stacks *stacks, int print)
-//{
-//	t_stack_element	*last_b;
-//
-//	if (!stacks->b || !stacks->b->next)
-//		return ;
-//	last_b = stack_get_last(stacks->b);
-//	last_b->previous->next = NULL;
-//	last_b->previous = NULL;
-//	last_b->next = stacks->b;
-//	stacks->b = last_b;
-//	if (print)
-//}
-
 void	rrr(t_stacks *stacks)
 {
 	rra(stacks, 0);
