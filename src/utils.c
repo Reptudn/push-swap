@@ -37,3 +37,27 @@ int	get_index_of_num(long *stack, long num, int *size)
 	}
 	return (-1);
 }
+
+int	get_biggest_num_index(t_stack_element *stack)
+{
+	int				i;
+	int				biggest_num;
+	int				biggest_num_index;
+	t_stack_element	*temp;
+
+	i = 0;
+	biggest_num_index = 0;
+	temp = stack_get_first(stack);
+	biggest_num = *temp->num;
+	while (temp)
+	{
+		if (*temp->num > biggest_num)
+		{
+			biggest_num = *temp->num;
+			biggest_num_index = i;
+		}
+		temp = temp->next;
+		i++;
+	}
+	return (biggest_num_index);
+}

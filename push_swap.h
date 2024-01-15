@@ -60,6 +60,7 @@ void			sort_stack_new(t_stacks *stacks);
 void			k_sort(long *a, long *b, int size, int k);
 
 int				get_smallest_num(t_stack_element *stack);
+int				get_biggest_num_index(t_stack_element *stack);
 
 void			log_error(long *stack_a, long *stack_b);
 int				ft_isnumber(char *str);	

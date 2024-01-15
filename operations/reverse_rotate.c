@@ -74,7 +74,7 @@ void	rrb(t_stacks *stacks, int print)
 	stacks->b = last;
 	stacks->b->previous = 0;
 	if (print)
-		write(1, "rra\n", 4);
+		write(1, "rrb\n", 4);
 }
 
 //void	rrb(t_stacks *stacks, int print)
