@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include "../push_swap.h"
 
 int	is_number_in_stack(int num, t_stack_element *stack)
 {

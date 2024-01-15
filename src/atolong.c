@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	get_num(const char *nptr, int i)
 {
@@ -28,10 +28,10 @@ int	get_num(const char *nptr, int i)
 	num /= 10;
 	if (num > 2147483647 || num < -2147483648)
 		return (0); // TODO: Error handling when number is not an int
-	return ((int)num);
+	return (1);
 }
 
-int	ft_atoi(const char *nptr)
+int	is_integer(const char *nptr)
 {
 	int		i;
 	int		prefix;

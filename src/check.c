@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib/libft/libft.h"
-#include "push_swap.h"
+#include "../push_swap.h"
 #include <stdlib.h>
 
 int	is_integer(char *str)

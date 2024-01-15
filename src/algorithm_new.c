@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_new.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: intra <intra@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jkauker <jkauker@student.42heilbornn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:54:59 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/12 15:38:43 by intra            ###   ########.fr       */
+/*   Updated: 2024/01/15 08:38:54 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./push_swap.h"
+#include "../push_swap.h"
 
 // pre-sorts the stack and divides it into 4 parts and then returns
 // the number of the stack size / 4 of the sorted array
