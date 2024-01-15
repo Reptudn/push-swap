@@ -28,7 +28,7 @@ int	is_sorted(t_stacks *stacks)
 	{
 		if (*temp->num < last_num)
 			return (0);
-		temp->next = temp->next;
+		last_num = *temp->num;
 		temp = temp->next;
 	}
 	return (1);

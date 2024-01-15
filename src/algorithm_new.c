@@ -6,11 +6,12 @@
 /*   By: jkauker <jkauker@student.42heilbornn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:54:59 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/15 08:38:54 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/15 10:16:12 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include <stdio.h>
 
 // pre-sorts the stack and divides it into 4 parts and then returns
 // the number of the stack size / 4 of the sorted array
@@ -54,8 +55,6 @@ int	get_key_number(t_stack_element *stack, int call)
 				}
 			}
 		}
-		for (i = 0; i < size; i++)
-			printf("arr[%d] = %d\n", i, sorted_array[i]);
 	}
 	return (sorted_array[(size / PACK_SIZE) * call - 1]);
 }
@@ -104,19 +103,18 @@ void	push_efficienlty_to_b(t_stacks *stacks, int key_number)
 	while (has_smaller_number(stacks->a, key_number))
 	{
 		a = get_next_num_index(stacks->a, key_number);
-		printf("a = %d\n", a);
 		if (a == -1)
 			return ;
 		if (a > get_stack_size(stacks->a) / 2)
 		{
 			a = get_stack_size(stacks->a) - a;
 			while (a--)
-				rra(stacks, 0);
+				rra(stacks, 1);
 		}
 		else
 			while (a--)
-				ra(stacks, 0);
-		pb(stacks, 0);
+				ra(stacks, 1);
+		pb(stacks, 1);
 	}
 }
 
@@ -124,7 +122,6 @@ void	push_back_efficently(t_stacks *stacks)
 {
 	int	a;
 
-	return ;
 	while (stacks->b)
 	{
 		a = get_smallest_num(stacks->b);
@@ -132,12 +129,12 @@ void	push_back_efficently(t_stacks *stacks)
 		{
 			a = get_stack_size(stacks->b) - a;
 			while (a--)
-				rrb(stacks, 0);
+				rrb(stacks, 1);
 		}
 		else
 			while (a--)
-				ra(stacks, 0);
-		pa(stacks, 0);
+				ra(stacks, 1);
+		pa(stacks, 1);
 	}
 }
 
@@ -147,21 +144,24 @@ void	sort_stack_new(t_stacks *stacks)
 	int			key_number;
 
 	if (is_sorted(stacks))
+	{
+		printf("is_sorted\n");
 		return ;
+	}
 	while (stacks->a && key_number != -2) //get_stack_size(stacks->a) > 3
 	{
 		key_number = get_key_number(stacks->a, key_call);
 		if (key_number == -2)
 		{
-			write(1, "keynbr -2\n", 11);
+			// write(1, "keynbr -2\n", 11);
 			break ;
 		}
-		printf("key_number = %d\n", key_number);
-		printf("key_call = %d\n", key_call);
+		// printf("key_number = %d\n", key_number);
+		// printf("key_call = %d\n", key_call);
 		if (key_number == -1)
 		{
-			write(1, "keynbr ", 7);
-			write(1, "Error\n", 6);
+			// write(1, "keynbr ", 7);
+			// write(1, "Error\n", 6);
 			return ;
 		}
 		push_efficienlty_to_b(stacks, get_key_number(stacks->a, key_call));
