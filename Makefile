@@ -39,7 +39,7 @@ fclean: clean
 	@make -C ./lib/ft_printf fclean
 	@rm -rf $(NAME)
 
-re: fclean all name
+re: fclean all
 
 # $@ - target
 # $^ - all dependencies
