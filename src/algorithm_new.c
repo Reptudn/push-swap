@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbornn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:54:59 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/16 10:27:33 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/16 11:09:30 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,6 +170,27 @@ void	sort_last_three(t_stacks *stacks)
 		rra(stacks, 1);
 }
 
+void	sort_ten(t_stacks *stacks)
+{
+	int				i;
+	t_stack_element	*temp;
+	t_stack_element	*temp_next;
+
+
+	temp = stack_get_first(stacks->a);
+	i = 0;
+	while (!is_sorted(stacks) && i < 100)
+	{
+		temp_next = temp->next;
+		if (temp->num > temp_next->num)
+			sa(stacks, 1);
+		else
+			ra(stacks, 1);
+		temp = temp_next;
+		i++;
+	}
+}
+
 void	sort_stack_new(t_stacks *stacks)
 {
 	int			key_call;
@@ -191,7 +212,9 @@ void	sort_stack_new(t_stacks *stacks)
 		return ;
 	}
 	else if (stack_size <= 10)
-		pack_size = 1;
+	{
+		pack_size = 2;
+	}
 	else if (stack_size <= 100)
 		pack_size = 6;
 	else if (stack_size <= 500)

@@ -15,9 +15,19 @@ SRC		:= 	$(SRC_DIR)log.c \
 			$(SRC_DIR)args_to_stack.c \
 			$(SRC_DIR)atolong.c \
 			$(OPERATIONS)
+SRC_BON	:= 	$(OPERATIONS) \
+			$(SRC_DIR)checker.c \
+			$(SRC_DIR)log.c \
+			$(SRC_DIR)check.c \
+			$(SRC_DIR)utils.c \
+			$(SRC_DIR)leakfree.c \
+			$(SRC_DIR)stack_utils.c \
+			$(SRC_DIR)args_to_stack.c \
+			$(SRC_DIR)atolong.c
 CFLAGS	:= -Wall -Wextra -Werror
 CC		:= cc
-INCLUDE	:= -I./lib/libft/libft.a -I./lib/ft_printf/libftprintf.a 
+INCLUDE	:= -I./lib/libft/libft.a -I./lib/ft_printf/libftprintf.a
+BONUS_LIBS	:= -I./lib/get_next_line/get_next_line.a -L./lib/get_next_line.a -lget_next_line
 LIBS	:= -L./lib/libft -L./lib/ft_printf -lft -lftprintf
 
 .PHONY: all clean fclean
@@ -30,16 +40,23 @@ all: $(NAME)
 $(NAME): $(SRC:.c=.o)
 	@make -C ./lib/libft
 	@make -C ./lib/ft_printf
+	@make -C ./lib/get_next_line
 	@$(CC) $(CFLAGS) $(INCLUDE) $^ $(LIBS) -o $@
+
+bonus: $(SRC_BON:.c=.o)
+	@make -C ./lib/get_next_line
+	@$(CC) $(CFLAGS) $(INCLUDE) $^ $(BONUS_LIBS) -o $@
 
 clean:
 	@make -C ./lib/libft clean
 	@make -C ./lib/ft_printf clean
+	@make -C ./lib/get_next_line clean
 	@rm -rf $(SRC_DIR)*.o ./operations/*.o
 
 fclean: clean
 	@make -C ./lib/libft fclean
 	@make -C ./lib/ft_printf fclean
+	@make -C ./lib/get_next_line fclean
 	@rm -rf $(NAME)
 
 re: fclean all

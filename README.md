@@ -11,4 +11,8 @@ https://zainab-dnaya.medium.com/fastest-push-swap-algorithm-2f510028602b
 
 ## Leaks
 - Valid Input: None
-- Invalid Input: ~24 bytes
+- Invalid Input: None
+
+# To Fix
+- gotta make a different sortign algo with less than 10 nums
+  - especially 5 has to have a maximum of 12 and best is 8
