@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbornn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:54:59 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/16 10:06:23 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/16 10:27:33 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,20 +151,22 @@ void	sort_last_three(t_stacks *stacks)
 	b = *stack_get_first(stacks->a)->next->num;
 	c = *stack_get_last(stacks->a)->num;
 	if (a > b && a > c && b < c)
-		sa(stacks, 1);
+		ra(stacks, 1);
 	else if (a > b && a > c && b > c)
 	{
 		sa(stacks, 1);
 		rra(stacks, 1);
 	}
-	else if (a < b && a > c)
-		ra(stacks, 1);
+	else if (a > b && a < c)
+		sa(stacks, 1);
 	else if (a < b && a < c && b > c)
 	{
 		sa(stacks, 1);
 		ra(stacks, 1);
 	}
-	else if (a < b && a < c && b < c)
+	else if (a > b && a < c && b < c)
+		rra(stacks, 1);
+	else
 		rra(stacks, 1);
 }
 
@@ -178,12 +180,17 @@ void	sort_stack_new(t_stacks *stacks)
 	if (is_sorted(stacks))
 		return ;
 	stack_size = get_stack_size(stacks->a);
-	if (stack_size < 4)
+	if (stack_size == 2)
+	{
+		sa(stacks, 1);
+		return ;
+	}
+	else if (stack_size < 4)
 	{
 		sort_last_three(stacks);
 		return ;
 	}
-	if (stack_size < 10)
+	else if (stack_size <= 10)
 		pack_size = 1;
 	else if (stack_size <= 100)
 		pack_size = 6;
