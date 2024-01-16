@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include <stdlib.h>
 
 int	clear_contents(char **contents, int i)
 {
@@ -46,4 +47,5 @@ void	stack_list_clear(t_stacks *stacks)
 	}
 	if (stacks)
 		free(stacks);
+	system("leaks push_swap");
 }

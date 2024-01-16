@@ -17,8 +17,10 @@ int	main(int argc, char **argv)
 	t_stacks	*stacks;
 
 	stacks = malloc(sizeof(t_stacks));
-	if (argc < 2 || !is_valid_input(argv, argc))
+	if (!stacks || argc < 2 || !is_valid_input(argv, argc))
 	{
+		if (stacks)
+			free(stacks);
 		write(1, "Error\n", 6);
 		return (1);
 	}
