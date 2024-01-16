@@ -61,3 +61,17 @@ int	get_biggest_num_index(t_stack_element *stack)
 	}
 	return (biggest_num_index);
 }
+
+int	is_stack_sorted(t_stack_element *stack)
+{
+	t_stack_element	*temp;
+
+	temp = stack_get_first(stack);
+	while (temp && temp->next)
+	{
+		if (*temp->num > *temp->next->num)
+			return (0);
+		temp = temp->next;
+	}
+	return (1);
+}

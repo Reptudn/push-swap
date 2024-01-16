@@ -1,4 +1,5 @@
 NAME	:= push_swap
+NAME_BON := checker
 SRC_DIR	:= ./src/
 OPERATIONS :=	operations/push.c \
 				operations/rotate.c \
@@ -45,7 +46,7 @@ $(NAME): $(SRC:.c=.o)
 
 bonus: $(SRC_BON:.c=.o)
 	@make -C ./lib/get_next_line
-	@$(CC) $(CFLAGS) $(INCLUDE) $^ $(BONUS_LIBS) -o $@
+	@$(CC) $(CFLAGS) $(INCLUDE) $^ $(BONUS_LIBS) -o $(NAME_BON)
 
 clean:
 	@make -C ./lib/libft clean

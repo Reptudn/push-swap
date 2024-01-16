@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbornn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:54:59 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/16 11:09:30 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/16 14:37:27 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ void	push_back_efficently(t_stacks *stacks)
 	}
 }
 
-void	sort_last_three(t_stacks *stacks)
+void	sort_three(t_stacks *stacks)
 {
 	int	a;
 	int	b;
@@ -167,28 +167,26 @@ void	sort_last_three(t_stacks *stacks)
 	else if (a > b && a < c && b < c)
 		rra(stacks, 1);
 	else
-		rra(stacks, 1);
+	{
+		if (!is_stack_sorted(stacks->a))
+			rra(stacks, 1);
+	}
 }
 
-void	sort_ten(t_stacks *stacks)
+void	sort_five(t_stacks *stacks)
 {
-	int				i;
-	t_stack_element	*temp;
-	t_stack_element	*temp_next;
-
-
-	temp = stack_get_first(stacks->a);
-	i = 0;
-	while (!is_sorted(stacks) && i < 100)
-	{
-		temp_next = temp->next;
-		if (temp->num > temp_next->num)
-			sa(stacks, 1);
-		else
-			ra(stacks, 1);
-		temp = temp_next;
-		i++;
-	}
+	pb(stacks, 1);
+	pb(stacks, 1);
+	sort_three(stacks);
+	if (stacks->b->num < stacks->b->next->num)
+		sb(stacks, 1);
+	while (*stack_get_first(stacks->a)->num < *stacks->b->num)
+		ra(stacks, 1);
+	pa(stacks, 1);
+	// TODO: rotate stack a so that i can call pa and push the last element over so its sorted
+	pa(stacks, 1);
+	while (!is_sorted(stacks))
+		ra(stacks, 1);
 }
 
 void	sort_stack_new(t_stacks *stacks)
@@ -208,13 +206,16 @@ void	sort_stack_new(t_stacks *stacks)
 	}
 	else if (stack_size < 4)
 	{
-		sort_last_three(stacks);
+		sort_three(stacks);
+		return ;
+	}
+	else if (stack_size == 5)
+	{
+		sort_five(stacks);
 		return ;
 	}
 	else if (stack_size <= 10)
-	{
 		pack_size = 2;
-	}
 	else if (stack_size <= 100)
 		pack_size = 6;
 	else if (stack_size <= 500)

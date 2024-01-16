@@ -14,5 +14,6 @@ https://zainab-dnaya.medium.com/fastest-push-swap-algorithm-2f510028602b
 - Invalid Input: None
 
 # To Fix
-- gotta make a different sortign algo with less than 10 nums
+- gotta make a different sortign algo with less than 10 nums (just the last loop isnt working)
   - especially 5 has to have a maximum of 12 and best is 8
+- makefile has to successfully compile the bonus checker stuff

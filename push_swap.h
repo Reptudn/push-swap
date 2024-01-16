@@ -80,5 +80,6 @@ int				is_stack_empty(long *stack, int *size);
 int				get_stack_size(t_stack_element *stack);
 
 int				is_sorted(t_stacks *stacks);
+int				is_stack_sorted(t_stack_element *stack);
 
 #endif

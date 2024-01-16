@@ -14,21 +14,6 @@
 
 // shift elements down by one
 
-// void	rra(t_stacks *stacks, int print)
-// {
-//	t_stack_element	*last_a;
-//
-//	if (!stacks->a || !stacks->a->next)
-//		return ;
-//	last_a = stack_get_last(stacks->a);
-//	last_a->previous->next = 0;
-//	last_a->previous = 0;
-//	last_a->next = stacks->a;
-//	stacks->a = last_a;
-//	if (print)
-//		write(1, "rra\n", 4);
-//}
-
 void	rra(t_stacks *stacks, int print)
 {
 	t_stack_element	*last;
