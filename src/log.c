@@ -56,5 +56,4 @@ void	end_program(t_stacks *stacks)
 		temp = temp->next;
 		free(temp);
 	}
-	// system("leaks push_swap");
 }

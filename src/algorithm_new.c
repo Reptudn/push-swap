@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbornn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:54:59 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/15 14:18:25 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/16 10:06:23 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int	get_key_number(t_stack_element *stack, int call, int pack_size)
 			}
 		}
 	}
+	if (call == pack_size)
+		return (sorted_array[size - 1]);
 	return (sorted_array[(size / pack_size) * call - 1]);
 }
 

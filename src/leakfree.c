@@ -47,5 +47,4 @@ void	stack_list_clear(t_stacks *stacks)
 	}
 	if (stacks)
 		free(stacks);
-	system("leaks push_swap");
 }
