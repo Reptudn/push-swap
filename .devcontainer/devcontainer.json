@@ -41,7 +41,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "echo 'Container created. Happy coding!'"
+	"postCreateCommand": "git config --global user.email 'jonas.kauker2003@gmail.com' && git config --global user.name Jonas && echo 'Container created. Happy coding!'"
 
 	// Configure tool-specific properties.
 	// "customizations": {},
