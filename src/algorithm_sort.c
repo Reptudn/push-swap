@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbornn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:50:37 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/17 10:35:03 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/17 11:56:24 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,36 @@ void	sort_three(t_stacks *stacks)
 		sort_three2(stacks, a, b, c);
 }
 
+void	get_last_num_spot(t_stacks *stacks, int num)
+{
+	// while (temp)
+	// {
+	// 	if (index == 0)
+	// 	{
+	// 		printf("first: %d, %d\n", *temp->num > num, *stack_get_last(stacks->a)->num < num);
+	// 		if (*temp->num > num && *stack_get_last(stacks->a)->num < num)
+	// 			return (index);
+	// 	}
+	// 	else if (index == get_stack_size(stacks->a) - 1)
+	// 	{
+	// 		printf("last: %d, %d\n", *temp->num > num, *stack_get_first(temp)->num < num);
+	// 		if (*temp->num > num && *stack_get_first(temp)->num < num)
+	// 			return (index);
+	// 	}
+	// 	printf("middle: %d, %d\n", *temp->num > num, *temp->next->num < num);
+	// 	if (*temp->num > num && *temp->next->num < num)
+	// 		return (index);
+	// 	temp = temp->next;
+	// }
+	// printf("%d, %d\n", *stack_get_first(stacks->a)->num >= num, *stack_get_last(stacks->a)->num <= num);
+	while (1)
+	{
+		if (*stack_get_first(stacks->a)->num >= num && *stack_get_last(stacks->a)->num >= num)
+			return ;
+		rra(stacks, 1);
+	}
+}
+
 void	sort_five(t_stacks *stacks)
 {
 	pb(stacks, 1);
@@ -61,7 +91,10 @@ void	sort_five(t_stacks *stacks)
 		ra(stacks, 1);
 	pa(stacks, 1);
 	// TODO: rotate stack a so that i can call pa and push the last element over so its sorted
+	get_last_num_spot(stacks, *stack_get_first(stacks->b)->num);
+	// while (*stack_get_first(stacks->a)->num >= *stacks->b->num && *stack_get_last(stacks->a)->num >= *stacks->b->num)
+	// 	rra(stacks, 1);
 	pa(stacks, 1);
-	while (!is_sorted(stacks))
-		ra(stacks, 1);
+	// while (!is_sorted(stacks))
+	// 	ra(stacks, 1);
 }
