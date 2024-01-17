@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbornn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:50:37 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/17 14:15:20 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/17 15:09:43 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,40 +50,31 @@ void	sort_three(t_stacks *stacks)
 		sort_three2(stacks, a, b, c);
 }
 
-void	to_num_spot(t_stacks *stacks)
+void	rotate(t_stacks *stacks, int a)
 {
-	t_stack_element	*above;
-	t_stack_element	*below;
-
-	above = stack_get_last(stacks->a);
-	below = stack_get_first(stacks->a);
-	if (*above->num < *stacks->b->num && *below->num > *stacks->b->num)
+	if (a > get_stack_size(stacks->a) / 2)
 	{
-		pa(stacks, 1);
-		return ;
-	}
-	while (*above->num > *stacks->b->num || *below->num < *stacks->b->num)
-	{
-		if (*above->num > *stacks->b->num)
+		a = get_stack_size(stacks->a) - a;
+		while (a--)
 			rra(stacks, 1);
-		else if (*below->num < *stacks->b->num)
+	}
+	else
+	{
+		while (a--)
 			ra(stacks, 1);
-		above = stack_get_last(stacks->a);
-		below = stack_get_first(stacks->a);
 	}
 }
 
 void	sort_five(t_stacks *stacks)
 {
+	rotate(stacks, get_biggest_num_index(stacks->a));
 	pb(stacks, 1);
+	rotate(stacks, get_biggest_num_index(stacks->a));
 	pb(stacks, 1);
 	sort_three(stacks);
-	if (stacks->b->num < stacks->b->next->num)
-		sb(stacks, 1);
-	to_num_spot(stacks);
+	sb(stacks, 1);
 	pa(stacks, 1);
-	to_num_spot(stacks);
 	pa(stacks, 1);
-	// while (!is_sorted(stacks))
-	// 	ra(stacks, 1);
+	ra(stacks, 1);
+	ra(stacks, 1);
 }
