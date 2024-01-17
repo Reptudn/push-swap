@@ -55,9 +55,10 @@ void	ra(t_stacks *stacks, int print)
 }
 
 // rr : ra and rb at the same time.
-void	rr(t_stacks *stacks)
+void	rr(t_stacks *stacks, int print)
 {
 	ra(stacks, 0);
 	rb(stacks, 0);
-	write(1, "rr\n", 3);
+	if (print)
+		write(1, "rr\n", 3);
 }

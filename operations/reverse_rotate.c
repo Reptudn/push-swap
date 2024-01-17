@@ -62,9 +62,10 @@ void	rrb(t_stacks *stacks, int print)
 		write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stacks *stacks)
+void	rrr(t_stacks *stacks, int print)
 {
 	rra(stacks, 0);
 	rrb(stacks, 0);
-	write(1, "rrr\n", 4);
+	if (print)
+		write(1, "rrr\n", 4);
 }

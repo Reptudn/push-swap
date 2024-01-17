@@ -49,9 +49,10 @@ void	sb(t_stacks *stacks, int print)
 		write(1, "sb\n", 3);
 }
 
-void	ss(t_stacks *stacks)
+void	ss(t_stacks *stacks, int print)
 {
 	sa(stacks, 0);
 	sb(stacks, 0);
-	write(1, "ss\n", 3);
+	if (print)
+		write(1, "ss\n", 3);
 }

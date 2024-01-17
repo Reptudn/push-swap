@@ -47,13 +47,13 @@ void			pb(t_stacks *stacks, int print);
 void			pa(t_stacks *stacks, int print);
 void			ra(t_stacks *stacks, int print);
 void			rb(t_stacks *stacks, int print);
-void			rr(t_stacks *stacks);
+void			rr(t_stacks *stacks, int print);
 void			rra(t_stacks *stacks, int print);
 void			rrb(t_stacks *stacks, int print);
-void			rrr(t_stacks *stacks);
+void			rrr(t_stacks *stacks, int print);
 void			sa(t_stacks *stacks, int print);
 void			sb(t_stacks *stacks, int print);
-void			ss(t_stacks *stacks);
+void			ss(t_stacks *stacks, int print);
 
 void			sort_stack(t_stacks *stacks);
 
