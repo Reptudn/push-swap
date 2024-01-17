@@ -26,13 +26,8 @@ int	is_number_in_stack(int num, t_stack_element *stack)
 	return (0);
 }
 
-int	string_to_stack(char *arg, t_stacks *stacks)
+int	make_stack(t_stacks *stacks)
 {
-	t_stack_element	*elem;
-
-	elem = 0;
-	if (is_number_in_stack(ft_atoi(arg), stacks->a))
-		return (0);
 	if (!stacks)
 	{
 		stacks = (t_stacks *)malloc(sizeof(t_stacks));
@@ -41,6 +36,18 @@ int	string_to_stack(char *arg, t_stacks *stacks)
 		stacks->a = 0;
 		stacks->b = 0;
 	}
+	return (1);
+}
+
+int	string_to_stack(char *arg, t_stacks *stacks)
+{
+	t_stack_element	*elem;
+
+	elem = 0;
+	if (is_number_in_stack(ft_atoi(arg), stacks->a))
+		return (0);
+	if (!make_stack(stacks))
+		return (0);
 	if (!stacks->a)
 	{
 		stacks->a = stack_new(ft_atoi(arg));

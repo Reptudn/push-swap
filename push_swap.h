@@ -56,8 +56,6 @@ void			sb(t_stacks *stacks, int print);
 void			ss(t_stacks *stacks);
 
 void			sort_stack(t_stacks *stacks);
-void			sort_stack_new(t_stacks *stacks);
-void			k_sort(long *a, long *b, int size, int k);
 
 int				get_smallest_num(t_stack_element *stack);
 int				get_biggest_num_index(t_stack_element *stack);
@@ -70,7 +68,6 @@ void			print_stacks(t_stacks *stacks);
 int				is_valid_input(char **argv, int argc);
 int				args_to_stack(int argc, char **argv, t_stacks *stacks);
 int				setup_second_stack(long *stack_b, long *stack_a, int *size);
-int				ft_sqrt(int num);
 int				is_integer(const char *nptr);
 
 int				get_index_of_smallest_num(long *stack, int *size);
@@ -81,5 +78,11 @@ int				get_stack_size(t_stack_element *stack);
 
 int				is_sorted(t_stacks *stacks);
 int				is_stack_sorted(t_stack_element *stack);
+
+int				has_smaller_number(t_stack_element *stack, int key_number);
+int				get_next_num_index(t_stack_element *stack, int key_number);
+int				get_key_number(t_stack_element *stack, int call, int pack_size);
+void			sort_five(t_stacks *stacks);
+void			sort_three(t_stacks *stacks);
 
 #endif

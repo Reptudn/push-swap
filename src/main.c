@@ -32,7 +32,7 @@ int	main(int argc, char **argv)
 		write(1, "Error\n", 6);
 		return (1);
 	}
-	sort_stack_new(stacks);
+	sort_stack(stacks);
 	stack_list_clear(stacks);
 	return (0);
 }

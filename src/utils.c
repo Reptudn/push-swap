@@ -12,18 +12,6 @@
 
 #include "../push_swap.h"
 
-int	ft_sqrt(int num)
-{
-	int	i;
-
-	i = 0;
-	if (num <= 0)
-		return (0);
-	while (i * i < num)
-		i++;
-	return (i);
-}
-
 int	get_index_of_num(long *stack, long num, int *size)
 {
 	int	i;

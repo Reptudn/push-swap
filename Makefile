@@ -9,12 +9,14 @@ SRC		:= 	$(SRC_DIR)log.c \
 			$(SRC_DIR)main.c \
 			$(SRC_DIR)check.c \
 			$(SRC_DIR)algorithm.c \
-			$(SRC_DIR)algorithm_new.c \
 			$(SRC_DIR)utils.c \
 			$(SRC_DIR)leakfree.c \
 			$(SRC_DIR)stack_utils.c \
 			$(SRC_DIR)args_to_stack.c \
 			$(SRC_DIR)atolong.c \
+			$(SRC_DIR)algorithm_sort.c \
+			$(SRC_DIR)algorithm_utils.c \
+			$(SRC_DIR)keynumbers.c \
 			$(OPERATIONS)
 SRC_BON	:= 	$(OPERATIONS) \
 			$(SRC_DIR)checker.c \

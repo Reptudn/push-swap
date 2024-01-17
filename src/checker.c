@@ -6,12 +6,41 @@
 /*   By: jkauker <jkauker@student.42heilbornn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:21:09 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/16 13:26:51 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/17 09:38:07 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include "../lib/get_next_line/get_next_line.h"
+
+void	execute_operation(t_stacks *stacks, char *line)
+{
+	if (ft_strncmp(line, "sa\n", ft_strlen(line)) == 0)
+		sa(stacks, 0);
+	else if (ft_strncmp(line, "sb\n", ft_strlen(line)) == 0)
+		sb(stacks, 0);
+	else if (ft_strncmp(line, "ss\n", ft_strlen(line)) == 0)
+		ss(stacks);
+	else if (ft_strncmp(line, "pa\n", ft_strlen(line)) == 0)
+		pa(stacks, 0);
+	else if (ft_strncmp(line, "pb\n", ft_strlen(line)) == 0)
+		pb(stacks, 0);
+	else if (ft_strncmp(line, "ra\n", ft_strlen(line)) == 0)
+		ra(stacks, 0);
+	else if (ft_strncmp(line, "rb\n", ft_strlen(line)) == 0)
+		rb(stacks, 0);
+	else if (ft_strncmp(line, "rr\n", ft_strlen(line)) == 0)
+		rr(stacks);
+	else if (ft_strncmp(line, "rra\n", ft_strlen(line)) == 0)
+		rra(stacks, 0);
+	else if (ft_strncmp(line, "rrb\n", ft_strlen(line)) == 0)
+		rrb(stacks, 0);
+	else if (ft_strncmp(line, "rrr\n", ft_strlen(line)) == 0)
+		rrr(stacks);
+	else
+		write(1, "Error\n", 6);
+	free(line);
+}
 
 void	checker_sort(t_stacks *stacks)
 {
@@ -20,30 +49,7 @@ void	checker_sort(t_stacks *stacks)
 	line = get_next_line(0);
 	while (line)
 	{
-		if (ft_strncmp(line, "sa\n", ft_strlen(line)) == 0)
-			sa(stacks, 0);
-		else if (ft_strncmp(line, "sb\n", ft_strlen(line)) == 0)
-			sb(stacks, 0);
-		else if (ft_strncmp(line, "ss\n", ft_strlen(line)) == 0)
-			ss(stacks);
-		else if (ft_strncmp(line, "pa\n", ft_strlen(line)) == 0)
-			pa(stacks, 0);
-		else if (ft_strncmp(line, "pb\n", ft_strlen(line)) == 0)
-			pb(stacks, 0);
-		else if (ft_strncmp(line, "ra\n", ft_strlen(line)) == 0)
-			ra(stacks, 0);
-		else if (ft_strncmp(line, "rb\n", ft_strlen(line)) == 0)
-			rb(stacks, 0);
-		else if (ft_strncmp(line, "rr\n", ft_strlen(line)) == 0)
-			rr(stacks);
-		else if (ft_strncmp(line, "rra\n", ft_strlen(line)) == 0)
-			rra(stacks, 0);
-		else if (ft_strncmp(line, "rrb\n", ft_strlen(line)) == 0)
-			rrb(stacks, 0);
-		else if (ft_strncmp(line, "rrr\n", ft_strlen(line)) == 0)
-			rrr(stacks);
-		else
-			write(1, "Error\n", 6);
+		execute_operation(stacks, line);
 		line = get_next_line(0);
 	}
 }
