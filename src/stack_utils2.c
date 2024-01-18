@@ -12,17 +12,18 @@
 
 #include "../push_swap.h"
 
-int	get_stack_size(t_stack_element *stack)
+int	get_biggest_number(t_stack_element *stack)
 {
-	int				i;
+	int				biggest_num;
 	t_stack_element	*temp;
 
-	i = 0;
 	temp = stack_get_first(stack);
+	biggest_num = *temp->num;
 	while (temp)
 	{
+		if (*temp->num > biggest_num)
+			biggest_num = *temp->num;
 		temp = temp->next;
-		i++;
 	}
-	return (i);
+	return (biggest_num);
 }

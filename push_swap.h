@@ -59,6 +59,9 @@ void			sort_stack(t_stacks *stacks);
 
 int				get_smallest_num(t_stack_element *stack);
 int				get_biggest_num_index(t_stack_element *stack);
+int				get_second_biggest_index(t_stack_element *stack, int biggest);
+int				ft_min(int num1, int num2);
+int				get_biggest_number(t_stack_element *stack);
 
 void			log_error(long *stack_a, long *stack_b);
 int				ft_isnumber(char *str);	
@@ -74,7 +77,6 @@ int				get_index_of_smallest_num(long *stack, int *size);
 int				get_index_of_num(long *stack, long num, int *size);
 int				get_curr_stack_height(long *stack, int *size);
 int				is_stack_empty(long *stack, int *size);
-int				get_stack_size(t_stack_element *stack);
 
 int				is_sorted(t_stacks *stacks);
 int				is_stack_sorted(t_stack_element *stack);

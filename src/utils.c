@@ -63,3 +63,34 @@ int	is_stack_sorted(t_stack_element *stack)
 	}
 	return (1);
 }
+
+int	get_second_biggest_index(t_stack_element *stack, int biggest)
+{
+	t_stack_element	*temp;
+	int				second_biggest;
+	int				i;
+	int				index;
+
+	temp = stack_get_first(stack);
+	second_biggest = *temp->num;
+	index = 0;
+	i = 0;
+	while (temp)
+	{
+		if (*temp->num > second_biggest && *temp->num < biggest)
+		{
+			index = i;
+			second_biggest = *temp->num;
+		}
+		i++;
+		temp = temp->next;
+	}
+	return (index);
+}
+
+int	ft_min(int num1, int num2)
+{
+	if (num1 < num2)
+		return (num1);
+	return (num2);
+}

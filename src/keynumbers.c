@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbornn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:46:10 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/17 10:46:06 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/18 08:47:26 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	sort_arr(int *sorted_array, int size)
 	int	j;
 	int	bubble_temp;
 
-	write(1, "sort_arr\n", 9);
 	i = 0;
 	while (i < size)
 	{
@@ -60,7 +59,6 @@ int	get_key_number(t_stack_element *stack, int call, int pack_size)
 		return (-2);
 	if (!sorted_array)
 	{
-		write(1, "make sorted arr\n", 17);
 		size = get_stack_size(stack);
 		sorted_array = malloc(sizeof(int) * size);
 		if (!sorted_array)

@@ -12,6 +12,7 @@ SRC		:= 	$(SRC_DIR)log.c \
 			$(SRC_DIR)utils.c \
 			$(SRC_DIR)leakfree.c \
 			$(SRC_DIR)stack_utils.c \
+			$(SRC_DIR)stack_utils2.c \
 			$(SRC_DIR)args_to_stack.c \
 			$(SRC_DIR)atolong.c \
 			$(SRC_DIR)algorithm_sort.c \
@@ -25,6 +26,7 @@ SRC_BON	:= 	$(OPERATIONS) \
 			$(SRC_DIR)utils.c \
 			$(SRC_DIR)leakfree.c \
 			$(SRC_DIR)stack_utils.c \
+			$(SRC_DIR)stack_utils2.c \
 			$(SRC_DIR)args_to_stack.c \
 			$(SRC_DIR)atolong.c
 CFLAGS	:= -Wall -Wextra -Werror
