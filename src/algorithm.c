@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkauker <jkauker@student.42heilbornn.de    +#+  +:+       +#+        */
+/*   By: jkauker <jkauker@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:54:59 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/17 15:11:47 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/18 14:57:23 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ int	select_pack_size(t_stacks *stacks)
 		return (-1);
 	}
 	else if (stack_size <= 10)
-		return (2);
+		return (1);
 	else if (stack_size <= 100)
 		return (6);
 	else if (stack_size <= 500)
@@ -137,6 +137,7 @@ void	sort_stack(t_stacks *stacks)
 	int			key_call;
 	int			pack_size;
 	int			key_number;
+	int stop = 0;
 
 	if (is_sorted(stacks))
 		return ;
@@ -144,14 +145,16 @@ void	sort_stack(t_stacks *stacks)
 	if (pack_size == -1)
 		return ;
 	key_call = 1;
-	while (stacks->a)
+	printf("pack_size: %d\n", pack_size);
+	while (stacks->a && stop == 0)
 	{
-		key_number = get_key_number(stacks->a, key_call, pack_size);
-		push_efficienlty_to_b(stacks, get_key_number(stacks->a,
-				key_call, pack_size));
-		if (key_number < 0)
-			break ;
+		// write(1, "key_call: ", 10);
+		key_number = get_key_number(stacks->a, key_call, pack_size, &stop);
+		printf("key_number: %d\n", key_number);
+		push_efficienlty_to_b(stacks, key_number);
 		key_call++;
+		if (stop == 0)
+			break ;
 	}
 	push_back_efficently(stacks);
 }

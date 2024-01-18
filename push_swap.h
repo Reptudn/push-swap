@@ -83,7 +83,7 @@ int				is_stack_sorted(t_stack_element *stack);
 
 int				has_smaller_number(t_stack_element *stack, int key_number);
 int				get_next_num_index(t_stack_element *stack, int key_number);
-int				get_key_number(t_stack_element *stack, int call, int pack_size);
+int				get_key_number(t_stack_element *stack, int call, int pack_size, int *stop);
 void			sort_five(t_stacks *stacks);
 void			sort_three(t_stacks *stacks);
 
