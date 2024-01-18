@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keynumbers.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkauker <jkauker@student.42heilbornn.de    +#+  +:+       +#+        */
+/*   By: jkauker <jkauker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:46:10 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/18 08:47:26 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/18 11:28:57 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	get_key_number(t_stack_element *stack, int call, int pack_size)
 {
 	static int		*sorted_array = 0;
 	static int		size;
-	int				i;
 
 	if (call > pack_size)
 		return (-2);
@@ -63,7 +62,6 @@ int	get_key_number(t_stack_element *stack, int call, int pack_size)
 		sorted_array = malloc(sizeof(int) * size);
 		if (!sorted_array)
 			return (-1);
-		i = -1;
 		fill_array(sorted_array, stack, size);
 		sort_arr(sorted_array, size);
 	}

@@ -77,6 +77,7 @@ fclean: clean
 	@make -C ./lib/libft fclean
 	@make -C ./lib/ft_printf fclean
 	@make -C ./lib/get_next_line fclean
+	@rm -rf $(NAME_BON)
 	@rm -rf $(NAME)
 
 re: fclean all
