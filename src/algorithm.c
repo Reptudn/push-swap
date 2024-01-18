@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:54:59 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/18 14:57:23 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/18 15:00:52 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,11 +150,11 @@ void	sort_stack(t_stacks *stacks)
 	{
 		// write(1, "key_call: ", 10);
 		key_number = get_key_number(stacks->a, key_call, pack_size, &stop);
+		if (stop == 1)
+			break ;
 		printf("key_number: %d\n", key_number);
 		push_efficienlty_to_b(stacks, key_number);
 		key_call++;
-		if (stop == 0)
-			break ;
 	}
 	push_back_efficently(stacks);
 }
