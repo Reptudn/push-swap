@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:21:09 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/18 10:36:44 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/18 12:22:06 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ int	checker_sort(t_stacks *stacks)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
-	stack_list_clear(stacks);
 	return (1);
 }
 
