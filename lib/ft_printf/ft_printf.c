@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonask <jonask@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "./utils/specifiers.h"
-#include "ft_printf.h"
+#include "ft_.h"
 #include <limits.h>
 
 int	handle_percent(const char *str, int *i, int *writecount)
@@ -39,7 +39,7 @@ int	handle_specifier(const char *str, int *i, int *writecount, va_list *keys)
 	return (0);
 }
 
-int	ft_printf(const char *str, ...)
+int	ft_(const char *str, ...)
 {
 	va_list		keys;
 	int			i;
@@ -70,7 +70,7 @@ int	ft_printf(const char *str, ...)
 
 // int	main(void)
 // {
-// 	printf("\n%d", ft_printf("%x", LONG_MAX));
-// 	printf("\n-------------\n");
-// 	printf("\n%d", printf("%x", LONG_MAX));
+// 	("\n%d", ft_("%x", LONG_MAX));
+// 	("\n-------------\n");
+// 	("\n%d", ("%x", LONG_MAX));
 // }

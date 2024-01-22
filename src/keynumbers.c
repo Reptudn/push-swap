@@ -6,7 +6,7 @@
 /*   By: jkauker <jkauker@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:46:10 by jkauker           #+#    #+#             */
-/*   Updated: 2024/01/18 14:55:15 by jkauker          ###   ########.fr       */
+/*   Updated: 2024/01/22 09:31:32 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int	get_key_number(t_stack_element *stack, int call, int pack_size, int *stop)
 
 	if (call > pack_size)
 	{
-		printf("ERROR: call > pack_size: %d\n", call);
 		*stop = 1;
 		return (-2);
 	}
@@ -65,14 +64,10 @@ int	get_key_number(t_stack_element *stack, int call, int pack_size, int *stop)
 		size = get_stack_size(stack);
 		sorted_array = malloc(sizeof(int) * size);
 		if (!sorted_array)
-		{
-			printf("ERROR: malloc failed\n");
 			return (-1);
-		}
 		fill_array(sorted_array, stack, size);
 		sort_arr(sorted_array, size);
 	}
-	printf("call: %d\n", call);
 	if (call == pack_size)
 		return (sorted_array[size - 1]);
 	return (sorted_array[(size / pack_size) * call]);
