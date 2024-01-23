@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkauker <jkauker@student.42heilbrnn.de>    +#+  +:+       +#+        */
+/*   By: jkauker <jkauker@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 11:42:52 by jgotz             #+#    #+#             */
-/*   Updated: 2023/11/10 16:07:56 by jkauker          ###   ########.fr       */
+/*   Created: 2023/10/21 11:42:52 by jkauker           #+#    #+#             */
+/*   Updated: 2024/01/23 11:00:33 by jkauker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
